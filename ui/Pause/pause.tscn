@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cb7q0lk1f7eup"]
+
+[ext_resource type="Script" uid="uid://c8430cyinl3de" path="res://ui/Pause/pause.gd" id="1_g7pds"]
+
+[node name="Pause" type="Control" unique_id=1889652057 node_paths=PackedStringArray("_pause_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g7pds")
+_pause_menu = NodePath("PauseMenu")
+
+[node name="PauseButton" type="Button" parent="." unique_id=109842796]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "PAUSE"
+
+[node name="PauseMenu" type="VBoxContainer" parent="." unique_id=1147475473]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -33.0
+offset_right = 45.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueButton" type="Button" parent="PauseMenu" unique_id=1527604644]
+layout_mode = 2
+text = "CONTINUE
+"
+
+[node name="QuitButton" type="Button" parent="PauseMenu" unique_id=784392873]
+layout_mode = 2
+text = "MAIN MENU"
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]

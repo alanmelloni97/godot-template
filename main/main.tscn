@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://0tguoaxhermy"]
+
+[ext_resource type="Script" uid="uid://8510d5gyhgcw" path="res://main/main.gd" id="1_yh5la"]
+[ext_resource type="Script" uid="uid://bnn0q1nj0r7ip" path="res://save_system/save_system.gd" id="2_qvhan"]
+[ext_resource type="Script" uid="uid://b7xrs5qb7lfxj" path="res://main/scene_manager.gd" id="3_f6fdm"]
+[ext_resource type="Script" uid="uid://ci0bfno7m6u7h" path="res://main/specific_static_save.gd" id="3_liyct"]
+[ext_resource type="Script" uid="uid://do0w1w1hnkqgd" path="res://main/specific_scene_logic.gd" id="5_k3v36"]
+
+[node name="Main" type="Node" unique_id=1384278331 node_paths=PackedStringArray("save_system", "scene_manager")]
+script = ExtResource("1_yh5la")
+save_system = NodePath("SaveSystem")
+scene_manager = NodePath("SceneManager")
+
+[node name="SaveSystem" type="Node" parent="." unique_id=980112996]
+script = ExtResource("2_qvhan")
+
+[node name="SpecificStaticSave" type="Node" parent="SaveSystem" unique_id=41538082]
+script = ExtResource("3_liyct")
+
+[node name="SceneManager" type="Node" parent="." unique_id=1780562628]
+script = ExtResource("3_f6fdm")
+
+[node name="SpecificSceneLogic" type="Node" parent="SceneManager" unique_id=888094065 node_paths=PackedStringArray("scene_manager")]
+script = ExtResource("5_k3v36")
+scene_manager = NodePath("..")

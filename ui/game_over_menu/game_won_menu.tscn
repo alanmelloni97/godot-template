@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bufebvasg4u2p"]
+
+[ext_resource type="Script" uid="uid://dqjylt4na0bf6" path="res://ui/game_over_menu/game_won_menu.gd" id="1_am2hj"]
+
+[node name="GameOverMenu" type="MarginContainer" unique_id=2094074240 node_paths=PackedStringArray("main_menu_button")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -27.5
+offset_right = 68.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_am2hj")
+main_menu_button = NodePath("VBoxContainer/MainMenuButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2103543208]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1391358971]
+layout_mode = 2
+text = "YOU WON"
+horizontal_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer" unique_id=1565408385]
+layout_mode = 2
+text = "MAIN MENU"

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://djhe7gkfow7tm"]
+
+[ext_resource type="Script" uid="uid://dui1s28tpil41" path="res://ui/ui.gd" id="1_2fwl4"]
+[ext_resource type="PackedScene" uid="uid://cb7q0lk1f7eup" path="res://ui/Pause/pause.tscn" id="3_e6gg6"]
+[ext_resource type="PackedScene" uid="uid://bufebvasg4u2p" path="res://ui/game_over_menu/game_won_menu.tscn" id="15_o2t6a"]
+
+[node name="UIManager" type="CanvasLayer" unique_id=1732020428 node_paths=PackedStringArray("_pause")]
+script = ExtResource("1_2fwl4")
+_pause = NodePath("Pause")
+
+[node name="Pause" parent="." unique_id=679988837 instance=ExtResource("3_e6gg6")]
+mouse_filter = 2
+
+[node name="GameWonMenu" parent="." unique_id=2094074240 instance=ExtResource("15_o2t6a")]
+visible = false
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 556.0
+offset_top = 304.0
+offset_right = 692.0
+offset_bottom = 362.0
+grow_horizontal = 1
+grow_vertical = 1
