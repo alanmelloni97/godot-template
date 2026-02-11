@@ -11,14 +11,16 @@ script = ExtResource("1_yh5la")
 save_system = NodePath("SaveSystem")
 scene_manager = NodePath("SceneManager")
 
-[node name="SaveSystem" type="Node" parent="." unique_id=980112996]
+[node name="SaveSystem" type="Node" parent="." unique_id=980112996 node_paths=PackedStringArray("specific_static_save")]
 script = ExtResource("2_qvhan")
+specific_static_save = NodePath("SpecificStaticSave")
 
 [node name="SpecificStaticSave" type="Node" parent="SaveSystem" unique_id=41538082]
 script = ExtResource("3_liyct")
 
-[node name="SceneManager" type="Node" parent="." unique_id=1780562628]
+[node name="SceneManager" type="Node" parent="." unique_id=1780562628 node_paths=PackedStringArray("specific_scene_logic")]
 script = ExtResource("3_f6fdm")
+specific_scene_logic = NodePath("SpecificSceneLogic")
 
 [node name="SpecificSceneLogic" type="Node" parent="SceneManager" unique_id=888094065 node_paths=PackedStringArray("scene_manager")]
 script = ExtResource("5_k3v36")
