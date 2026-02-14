@@ -3,7 +3,14 @@ extends Node
 
 @export var specific_static_save: SpecificStaticSave
 
-var _save_path: NodePath = "res://save_system/save_game.tres"
+var _save_path: NodePath
+
+
+func _ready() -> void:
+	if OS.has_feature("debug"): # If running on editor or debug build
+		_save_path = "res://save_system/save_game.tres"
+	else: # if release build
+		_save_path = "user://save_game.tres"
 
 
 func save_game():
