@@ -9,6 +9,13 @@ static func get_random_point_in_rect(rect: Rect2):
 	return Vector2(x, y)
 
 
+# for when a collision shape with a rectangleshape2d is used to define a rectangle in editor
+static func get_random_point_in_rectangle_shape(rectangle_shape: RectangleShape2D):
+	var x = randf_range(-rectangle_shape.size.x / 2, rectangle_shape.size.x / 2)
+	var y = randf_range(-rectangle_shape.size.y / 2, rectangle_shape.size.y / 2)
+	return Vector2(x, y)
+
+
 static func duplicate_astar_grid(old_grid: AStarGrid2D) -> AStarGrid2D:
 	# Copy grid data
 	var new_grid: AStarGrid2D = AStarGrid2D.new()

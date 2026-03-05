@@ -8,8 +8,9 @@ todo
 
 
 
-
-
+- SPAWNING:
+When spawning an object that has to be attached to another node, use owner.add_child() instead of
+getting a reference to the root of the scene. whis way the script can still extend Node
 
 
 
