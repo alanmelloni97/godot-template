@@ -3,9 +3,9 @@ extends Resource
 
 
 # Global helper functions
-static func play_audio_post_mortem(audio_stream_player: AudioStreamPlayer2D) -> void:
+static func play_audio_post_mortem(audio_stream_player: AudioStreamPlayer2D, new_parent: Node) -> void:
 	audio_stream_player.play()
-	audio_stream_player.reparent(audio_stream_player.get_parent())
+	audio_stream_player.reparent(new_parent)
 	audio_stream_player.finished.connect(audio_stream_player.queue_free)
 
 
