@@ -37,6 +37,47 @@ this probably works for built in resources only.
 	its better to rotate only the sprite of the rigidbody and not the body if thats possible.
 
 
+- TWEEN:
+	When tweening a property again before it finished tweening, it won't play. For example when
+	pressing a button rapidly. To avoid this, the tween should be declared on the top of the script
+	and then on the function check for tween.is_running(), then kill it so that it can restart:
+
+##############################################
+var tween: Tween
+
+func foo():
+	if tween and tween.is_running():
+		tween.kill()
+	tween.tween_property(self, scale, 0,1)
+##############################################
+
+
+- NAVIGATION:
+	To carve the navmesh, a Polygon2D or a NavigationObstacle2D can be used. The NavigationObstacle2D
+	needs the property 'Affect Navigation Mesh' to be set. They have to be children of the mesh to take
+	effect.
+
+
+- THEMES:
+	There is currently no global color font, so white will be default for everything and has to be
+	overwritten everywhere
+
+- EXPORT:
+	When showing a shader, particle effect or light for the first time, the game compiles the shaders
+	and a stutter happens. To avoid this see:
+		https://docs.godotengine.org/en/stable/tutorials/performance/pipeline_compilations.html
+	in compatibility mode, the only solution is to show this shaders and effects for one frame when
+	starting the game
+
+- Sprite2D:
+	To generate a CollisionPolygon2D from a sprite, there is an option to do so from the editor. To
+	do it with code, the bitman class has to be used: 
+		https://shaggydev.com/2022/04/13/sprite-collision-polygons/
+
+
+
+
+
 
 
 
