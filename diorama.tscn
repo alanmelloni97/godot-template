@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://csd4u171ewxq3" path="res://z_docs/todo.gd" id="1_ra25d"]
 [ext_resource type="PackedScene" uid="uid://btdxfw2ejjx0y" path="res://global/scenes.tscn" id="2_m531o"]
+[ext_resource type="Script" uid="uid://62o6dv76a3de" path="res://global/scene_manager.gd" id="2_uqgls"]
 [ext_resource type="Script" uid="uid://ba51771p4si4f" path="res://global/utilities.gd" id="3_8a1bj"]
+[ext_resource type="PackedScene" uid="uid://0tguoaxhermy" path="res://main/main.tscn" id="5_2q8hc"]
+[ext_resource type="PackedScene" uid="uid://c5eyic67inbxd" path="res://game_logic/menus/main_menu/main_menu.tscn" id="6_2q8hc"]
 
 [node name="Diorama" type="Node" unique_id=1537340114]
 
@@ -11,7 +14,18 @@ script = ExtResource("1_ra25d")
 
 [node name="Globals" type="Node" parent="." unique_id=269561914]
 
+[node name="SceneManager" type="Node" parent="Globals" unique_id=1097115373]
+script = ExtResource("2_uqgls")
+
 [node name="Scenes" parent="Globals" unique_id=1521295893 instance=ExtResource("2_m531o")]
 
 [node name="Utilities" type="Node" parent="Globals" unique_id=1080340552]
 script = ExtResource("3_8a1bj")
+
+[node name="Main" parent="." unique_id=1384278331 instance=ExtResource("5_2q8hc")]
+
+[node name="Scenes" type="Node" parent="." unique_id=222407961]
+
+[node name="MainMenu" parent="Scenes" unique_id=1286326675 instance=ExtResource("6_2q8hc")]
+
+[node name="GameObjects" type="Node" parent="." unique_id=1372238154]

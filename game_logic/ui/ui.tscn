@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://djhe7gkfow7tm"]
+
+[ext_resource type="Script" uid="uid://dui1s28tpil41" path="res://game_logic/ui/ui.gd" id="1_2fwl4"]
+[ext_resource type="PackedScene" uid="uid://cb7q0lk1f7eup" path="res://components/ui/Pause/pause.tscn" id="3_e6gg6"]
+
+[node name="UIManager" type="CanvasLayer" unique_id=1732020428 node_paths=PackedStringArray("_pause")]
+script = ExtResource("1_2fwl4")
+_pause = NodePath("Pause")
+
+[node name="Pause" parent="." unique_id=679988837 instance=ExtResource("3_e6gg6")]
+mouse_filter = 2

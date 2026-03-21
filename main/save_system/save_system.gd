@@ -7,8 +7,8 @@ var _save_path: NodePath
 
 
 func _ready() -> void:
-	if OS.has_feature("debug"): # If running on editor or debug build
-		_save_path = "res://save_system/save_game.tres"
+	if OS.is_debug_build(): # If running on editor or debug build
+		_save_path = "res://main/save_system/save_game.tres"
 	else: # if release build
 		_save_path = "user://save_game.tres"
 
@@ -34,8 +34,9 @@ func load_game():
 
 
 func load_game_static():
-	var game_save: GameSave = ResourceLoader.load(_save_path)
-	specific_static_save.load_static(game_save)
+	if ResourceLoader.exists(_save_path):
+		var game_save: GameSave = ResourceLoader.load(_save_path)
+		specific_static_save.load_static(game_save)
 
 
 func load_game_dynamic():

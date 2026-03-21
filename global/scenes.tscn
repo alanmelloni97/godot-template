@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://btdxfw2ejjx0y"]
 
 [ext_resource type="Script" uid="uid://bqd0tte0w2csq" path="res://global/scenes.gd" id="1_4wh4c"]
+[ext_resource type="PackedScene" uid="uid://c5eyic67inbxd" path="res://game_logic/menus/main_menu/main_menu.tscn" id="2_aaa60"]
 
 [node name="Scenes" type="Node" unique_id=1521295893]
 script = ExtResource("1_4wh4c")
+main_menu = ExtResource("2_aaa60")

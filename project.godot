@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="_TEMPLATE_"
+run/main_scene="uid://0tguoaxhermy"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://dgdglwhx3o0jb"
 
+[audio]
+
+buses/default_bus_layout="uid://ca1un4wx615y2"
+
 [autoload]
 
-Game="*uid://cqcl5uuc1j3bo"
 Scenes="*uid://btdxfw2ejjx0y"
+SceneManager="*uid://62o6dv76a3de"
 
 [display]
 
