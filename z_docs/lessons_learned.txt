@@ -1,4 +1,3 @@
-"
 - RESOURCES:
 resources can be local to the scene or be saved on //res as a .tres file. If they are local,
 they will be lost when removing, so if the resource has much info its better to save it to //res
@@ -84,11 +83,3 @@ func foo():
 	Also, from the configuratino tool, the advanced text server can be disabled and the fallback
 	enabled (not made by default)
 		
-
-
-
-
-
-
-
-"

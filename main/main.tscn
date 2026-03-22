@@ -61,12 +61,16 @@ script = ExtResource("10_yyosa")
 label = NodePath("Label")
 
 [node name="Label" type="Label" parent="DebugVersionWarning" unique_id=1520612531]
-visible = false
 modulate = Color(0.8796275, 0, 0.16597453, 1)
-offset_left = 750.0
-offset_top = 36.0
-offset_right = 2344.0
-offset_bottom = 197.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -797.0
+offset_right = 797.0
+offset_bottom = 161.0
+grow_horizontal = 2
 theme_type_variation = &"7SegmentLabel"
 theme_override_font_sizes/font_size = 30
 text = "THIS IS A DEBUG VERSION"
+horizontal_alignment = 1
+vertical_alignment = 1

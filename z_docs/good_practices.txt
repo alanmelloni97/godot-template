@@ -1,8 +1,5 @@
-"
 
 todo
-
-
 
 
 
@@ -14,7 +11,4 @@ getting a reference to the root of the scene. whis way the script can still exte
 
 
 
-
-
-"
 # TODO

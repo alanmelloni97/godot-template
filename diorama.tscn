@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://sjfue7114hiq"]
 
-[ext_resource type="Script" uid="uid://csd4u171ewxq3" path="res://z_docs/todo.gd" id="1_ra25d"]
 [ext_resource type="PackedScene" uid="uid://btdxfw2ejjx0y" path="res://global/scenes.tscn" id="2_m531o"]
 [ext_resource type="Script" uid="uid://62o6dv76a3de" path="res://global/scene_manager.gd" id="2_uqgls"]
 [ext_resource type="Script" uid="uid://ba51771p4si4f" path="res://global/utilities.gd" id="3_8a1bj"]
@@ -8,9 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c5eyic67inbxd" path="res://game_logic/menus/main_menu/main_menu.tscn" id="6_2q8hc"]
 
 [node name="Diorama" type="Node" unique_id=1537340114]
-
-[node name="TODO" type="Node" parent="." unique_id=1573690434]
-script = ExtResource("1_ra25d")
 
 [node name="Globals" type="Node" parent="." unique_id=269561914]
 
