@@ -6,7 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://0tguoaxhermy" path="res://main/main.tscn" id="5_2q8hc"]
 [ext_resource type="PackedScene" uid="uid://c5eyic67inbxd" path="res://game_logic/menus/main_menu/main_menu.tscn" id="6_2q8hc"]
 
+[sub_resource type="GDScript" id="GDScript_uqgls"]
+script/source = "@icon(\"res://assets/godot_icons/icon_shape.png\")
+extends Node
+"
+
 [node name="Diorama" type="Node" unique_id=1537340114]
+script = SubResource("GDScript_uqgls")
 
 [node name="Globals" type="Node" parent="." unique_id=269561914]
 

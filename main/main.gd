@@ -1,3 +1,4 @@
+@icon("res://assets/godot_icons/icon_map.png")
 class_name Main
 extends Node
 

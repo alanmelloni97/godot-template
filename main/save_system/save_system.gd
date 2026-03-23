@@ -1,3 +1,4 @@
+@icon("res://assets/godot_icons/icon_save.png")
 class_name SaveSystem
 extends Node
 

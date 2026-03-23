@@ -1,3 +1,4 @@
+@icon("res://assets/godot_icons/icon_scene.png")
 extends Node
 
 # Autoload: SceneManager

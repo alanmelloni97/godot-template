@@ -1,3 +1,4 @@
+@icon("res://assets/godot_icons/icon_hammer.png")
 class_name PlatformConfig
 extends Node
 

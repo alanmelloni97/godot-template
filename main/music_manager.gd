@@ -1,3 +1,4 @@
+@icon("res://assets/godot_icons/icon_audio.png")
 class_name MusicManager
 extends Node
 
