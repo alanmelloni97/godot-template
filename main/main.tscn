@@ -57,6 +57,7 @@ mobile_fullscreen = true
 script = ExtResource("10_u3llg")
 
 [node name="DebugVersionWarning" type="CanvasLayer" parent="." unique_id=1587077865 node_paths=PackedStringArray("label")]
+layer = 2
 script = ExtResource("10_yyosa")
 label = NodePath("Label")
 

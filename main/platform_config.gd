@@ -4,6 +4,7 @@ extends Node
 
 @export var desktop_fullscreen: bool
 @export var mobile_fullscreen: bool
+@export var mobile_stretch_aspect: bool
 
 
 func _ready() -> void:
@@ -16,6 +17,8 @@ func _ready() -> void:
 	if DisplayServer.is_touchscreen_available():
 		if mobile_fullscreen:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		if mobile_stretch_aspect:
+			ProjectSettings.set_setting("display/window/stretch/aspect", "expand")
 	# Desktop
 	else:
 		if desktop_fullscreen:
