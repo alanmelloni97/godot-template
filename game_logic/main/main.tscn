@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://0tguoaxhermy"]
+
+[ext_resource type="Script" uid="uid://8510d5gyhgcw" path="res://game_logic/main/main.gd" id="1_yyosa"]
+[ext_resource type="Script" uid="uid://bnn0q1nj0r7ip" path="res://game_logic/main/save_system/save_system.gd" id="2_u3llg"]
+[ext_resource type="Script" uid="uid://ci0bfno7m6u7h" path="res://game_logic/main/save_system/game_stats_saver.gd" id="3_ntpxs"]
+[ext_resource type="Script" uid="uid://62o6dv76a3de" path="res://game_logic/main/scene_manager/scene_manager.gd" id="4_rrgxr"]
+[ext_resource type="Script" uid="uid://b0dvddvx114dr" path="res://game_logic/main/music_manager.gd" id="5_6jl4q"]
+[ext_resource type="Script" uid="uid://byrxmi71fifpd" path="res://game_logic/main/ui_sound_player.gd" id="6_krguk"]
+[ext_resource type="Script" uid="uid://dsxqhy2yc5ld3" path="res://game_logic/main/preloading.gd" id="7_k05wu"]
+[ext_resource type="Script" uid="uid://d3ddtgq87jpug" path="res://game_logic/main/platform_config.gd" id="8_pi04w"]
+[ext_resource type="Script" uid="uid://daspn2nksgh1t" path="res://game_logic/main/specific_config.gd" id="9_e7p3w"]
+[ext_resource type="Script" uid="uid://cn3qv486giv3t" path="res://game_logic/main/debug_version_warning.gd" id="10_e5dw1"]
+[ext_resource type="Script" uid="uid://cr2qrytkmnhkx" path="res://game_logic/main/main_signals_handler.gd" id="11_u3llg"]
+
+[node name="Main" type="Node" unique_id=1384278331 node_paths=PackedStringArray("save_system", "music_manager", "scene_manager")]
+script = ExtResource("1_yyosa")
+save_system = NodePath("SaveSystem")
+music_manager = NodePath("MusicManager")
+scene_manager = NodePath("SceneManager")
+
+[node name="MainSignalsHandler" type="Node" parent="." unique_id=1601556934 node_paths=PackedStringArray("save_system", "scene_manager")]
+script = ExtResource("11_u3llg")
+save_system = NodePath("../SaveSystem")
+scene_manager = NodePath("../SceneManager")
+
+[node name="SaveSystem" type="Node" parent="." unique_id=980112996]
+script = ExtResource("2_u3llg")
+
+[node name="GameStatsSaver" type="Node" parent="SaveSystem" unique_id=41538082 groups=["saveable_static"]]
+script = ExtResource("3_ntpxs")
+
+[node name="SceneManager" type="Node" parent="." unique_id=129703937]
+script = ExtResource("4_rrgxr")
+
+[node name="MusicManager" type="Node" parent="." unique_id=124095115 node_paths=PackedStringArray("audio_stream_player")]
+process_mode = 3
+script = ExtResource("5_6jl4q")
+audio_stream_player = NodePath("AudioStreamPlayer")
+FADE_IN_SECONDS = 2.0
+FADE_OUT_SECONDS = 1.0
+FADE_DB = -70
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager" unique_id=1866995240]
+autoplay = true
+bus = &"Music"
+
+[node name="UISoundPlayer" type="Node" parent="." unique_id=489840397 node_paths=PackedStringArray("button_pressed_sound", "button_hovered_sound")]
+script = ExtResource("6_krguk")
+button_pressed_sound = NodePath("ButtonPressedSound")
+button_hovered_sound = NodePath("ButtonHoveredSound")
+
+[node name="ButtonPressedSound" type="AudioStreamPlayer" parent="UISoundPlayer" unique_id=1205195677]
+bus = &"UISounds"
+
+[node name="ButtonHoveredSound" type="AudioStreamPlayer" parent="UISoundPlayer" unique_id=1106751165]
+bus = &"UISounds"
+
+[node name="Preloading" type="Node" parent="." unique_id=731860452]
+script = ExtResource("7_k05wu")
+
+[node name="PlatformConfig" type="Node" parent="." unique_id=1742208959]
+script = ExtResource("8_pi04w")
+desktop_fullscreen = true
+mobile_fullscreen = true
+
+[node name="SpecificConfig" type="Node" parent="PlatformConfig" unique_id=1798769233]
+script = ExtResource("9_e7p3w")
+
+[node name="DebugVersionWarning" type="CanvasLayer" parent="." unique_id=1587077865 node_paths=PackedStringArray("label")]
+layer = 2
+script = ExtResource("10_e5dw1")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="DebugVersionWarning" unique_id=1520612531]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -797.0
+offset_right = 797.0
+offset_bottom = 161.0
+grow_horizontal = 2
+theme_type_variation = &"7SegmentLabel"
+theme_override_colors/font_color = Color(0.8454848, 0.19136149, 0.24989131, 1)
+theme_override_font_sizes/font_size = 30
+text = "THIS IS A DEBUG VERSION"
+horizontal_alignment = 1
+vertical_alignment = 1
