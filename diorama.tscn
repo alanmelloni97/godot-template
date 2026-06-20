@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://sjfue7114hiq"]
 
 [ext_resource type="PackedScene" uid="uid://btdxfw2ejjx0y" path="res://global/scenes.tscn" id="2_m531o"]
-[ext_resource type="Script" uid="uid://62o6dv76a3de" path="res://game_logic/main/scene_manager/scene_manager.gd" id="2_uqgls"]
+[ext_resource type="PackedScene" uid="uid://c7w0e4o3i0x8c" path="res://global/game.tscn" id="3_2q8hc"]
 [ext_resource type="Script" uid="uid://ba51771p4si4f" path="res://global/utilities.gd" id="3_8a1bj"]
+[ext_resource type="Script" uid="uid://cxdpv1irbf7pu" path="res://global/main_signal_bus.gd" id="4_eaqoi"]
 [ext_resource type="PackedScene" uid="uid://0tguoaxhermy" path="res://game_logic/main/main.tscn" id="5_2q8hc"]
 [ext_resource type="PackedScene" uid="uid://c5eyic67inbxd" path="res://game_logic/menus/main_menu/main_menu.tscn" id="6_2q8hc"]
 
@@ -16,13 +17,15 @@ script = SubResource("GDScript_uqgls")
 
 [node name="Globals" type="Node" parent="." unique_id=269561914]
 
-[node name="SceneManager" type="Node" parent="Globals" unique_id=1097115373]
-script = ExtResource("2_uqgls")
-
 [node name="Scenes" parent="Globals" unique_id=1521295893 instance=ExtResource("2_m531o")]
 
 [node name="Utilities" type="Node" parent="Globals" unique_id=1080340552]
 script = ExtResource("3_8a1bj")
+
+[node name="Game" parent="Globals" unique_id=1913532994 instance=ExtResource("3_2q8hc")]
+
+[node name="MainSignalBus" type="Node" parent="Globals" unique_id=1514342044]
+script = ExtResource("4_eaqoi")
 
 [node name="Main" parent="." unique_id=1384278331 instance=ExtResource("5_2q8hc")]
 
