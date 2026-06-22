@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d3e46twcei605"]
+
+[ext_resource type="Texture2D" uid="uid://dcn1374aidd3y" path="res://assets/vehicle/chasis.png" id="1_4yp75"]
+[ext_resource type="Script" uid="uid://bslyriwi2wb6o" path="res://game_logic/vehicle/movement_controller.gd" id="1_47aer"]
+[ext_resource type="PackedScene" uid="uid://cj2u4i1fwfsan" path="res://game_logic/vehicle/wheel_l.tscn" id="2_oe22b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7sxp"]
+size = Vector2(104, 46)
+
+[node name="Vehicle" type="RigidBody2D" unique_id=1312619414]
+
+[node name="MovementController" type="Node" parent="." unique_id=278805211 node_paths=PackedStringArray("wheels")]
+script = ExtResource("1_47aer")
+wheels = [NodePath("../PinJointL/WheelL"), NodePath("../PinJointR/WheelR")]
+FORCE = 20000.0
+MAX_FORWARD_SPEED = 400.0
+MAX_BACKWARD_SPEED = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2063890952]
+texture = ExtResource("1_4yp75")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1886124015]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_b7sxp")
+
+[node name="PinJointL" type="PinJoint2D" parent="." unique_id=893534584]
+position = Vector2(-31, 25)
+node_a = NodePath("..")
+node_b = NodePath("WheelL")
+softness = 0.5
+
+[node name="WheelL" parent="PinJointL" unique_id=861032443 instance=ExtResource("2_oe22b")]
+
+[node name="PinJointR" type="PinJoint2D" parent="." unique_id=1827734806]
+position = Vector2(28, 25)
+node_a = NodePath("..")
+node_b = NodePath("WheelR")
+softness = 0.5
+
+[node name="WheelR" parent="PinJointR" unique_id=2124128944 instance=ExtResource("2_oe22b")]

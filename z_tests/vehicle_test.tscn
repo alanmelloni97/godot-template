@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b20qttd7m3aft"]
+
+[ext_resource type="PackedScene" uid="uid://d3e46twcei605" path="res://game_logic/vehicle/vehicle.tscn" id="1_c4tmc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b7sxp"]
+
+[node name="VehicleTest" type="Node2D" unique_id=522924264]
+
+[node name="Vehicle" parent="." unique_id=1312619414 instance=ExtResource("1_c4tmc")]
+position = Vector2(861, 647)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1909757158]
+position = Vector2(9, 367)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1953554360]
+position = Vector2(881, 713)
+shape = SubResource("WorldBoundaryShape2D_b7sxp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=590904551]
+position = Vector2(888, 652)
+zoom = Vector2(0.965, 0.965)
