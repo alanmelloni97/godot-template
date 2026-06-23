@@ -1,13 +1,17 @@
 [gd_scene format=4 uid="uid://deknwytbin24p"]
 
+[ext_resource type="Script" uid="uid://5m54qnyt4im6" path="res://game_logic/level/brush_handler.gd" id="1_oyh4j"]
 [ext_resource type="Script" uid="uid://cs6mnc0bix7a5" path="res://game_logic/mouse_painter/mouse_painter.gd" id="1_y6m4d"]
 [ext_resource type="PackedScene" uid="uid://d3e46twcei605" path="res://game_logic/vehicle/vehicle.tscn" id="2_3qttp"]
-[ext_resource type="PackedScene" uid="uid://dcln0f8nou1u7" path="res://game_logic/mouse_painter/line.tscn" id="2_7i0e5"]
 [ext_resource type="Texture2D" uid="uid://svrg2r0m212r" path="res://assets/tileset/sheet.png" id="3_3qttp"]
 [ext_resource type="Script" uid="uid://bfw2xskpytgek" path="res://components/mouse_follower/mouse_follower.gd" id="3_guxw8"]
+[ext_resource type="PackedScene" uid="uid://cirt2ex1q75e2" path="res://game_logic/mouse_painter/segment.tscn" id="3_oyh4j"]
+[ext_resource type="Script" uid="uid://b3n0reggskko0" path="res://game_logic/level/line_eraser.gd" id="3_sf1xj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b7sxp"]
 radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oyh4j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7i0e5"]
 texture = ExtResource("3_3qttp")
@@ -92,22 +96,38 @@ sources/2 = SubResource("TileSetAtlasSource_7i0e5")
 
 [node name="Level" type="Node2D" unique_id=898447591]
 
-[node name="MousePainter" type="Node" parent="." unique_id=762700113 node_paths=PackedStringArray("map", "mouse_detector")]
+[node name="BrushHandler" type="Node" parent="." unique_id=54407087 node_paths=PackedStringArray("paint_manager", "erase_manager")]
+script = ExtResource("1_oyh4j")
+paint_manager = NodePath("PaintManager")
+erase_manager = NodePath("EraseManager")
+
+[node name="PaintManager" type="Node" parent="BrushHandler" unique_id=762700113 node_paths=PackedStringArray("map", "mouse_pointer")]
 script = ExtResource("1_y6m4d")
-map = NodePath("..")
-line = ExtResource("2_7i0e5")
-mouse_detector = NodePath("../MouseFollower/MouseDetector")
+map = NodePath("../..")
+segment = ExtResource("3_oyh4j")
+mouse_pointer = NodePath("PaintBrush")
 
-[node name="MouseFollower" type="Node" parent="." unique_id=39241476]
-
-[node name="MouseDetector" type="Area2D" parent="MouseFollower" unique_id=1139076505 node_paths=PackedStringArray("object")]
+[node name="PaintBrush" type="Area2D" parent="BrushHandler/PaintManager" unique_id=1139076505 node_paths=PackedStringArray("object")]
 collision_layer = 0
 collision_mask = 5
 script = ExtResource("3_guxw8")
 object = NodePath(".")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseFollower/MouseDetector" unique_id=1895995038]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrushHandler/PaintManager/PaintBrush" unique_id=1895995038]
 shape = SubResource("CircleShape2D_b7sxp")
+
+[node name="EraseManager" type="Node" parent="BrushHandler" unique_id=1795477852 node_paths=PackedStringArray("eraser_brush")]
+script = ExtResource("3_sf1xj")
+eraser_brush = NodePath("EraserBrush")
+
+[node name="EraserBrush" type="Area2D" parent="BrushHandler/EraseManager" unique_id=139293500 node_paths=PackedStringArray("object")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_guxw8")
+object = NodePath(".")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrushHandler/EraseManager/EraserBrush" unique_id=227959419]
+shape = SubResource("CircleShape2D_oyh4j")
 
 [node name="Vehicle" parent="." unique_id=1312619414 instance=ExtResource("2_3qttp")]
 position = Vector2(100, 150)
