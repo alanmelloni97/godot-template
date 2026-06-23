@@ -4,6 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://d3e46twcei605" path="res://game_logic/vehicle/vehicle.tscn" id="2_3qttp"]
 [ext_resource type="PackedScene" uid="uid://dcln0f8nou1u7" path="res://game_logic/mouse_painter/line.tscn" id="2_7i0e5"]
 [ext_resource type="Texture2D" uid="uid://svrg2r0m212r" path="res://assets/tileset/sheet.png" id="3_3qttp"]
+[ext_resource type="Script" uid="uid://bfw2xskpytgek" path="res://components/mouse_follower/mouse_follower.gd" id="3_guxw8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7sxp"]
+radius = 2.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7i0e5"]
 texture = ExtResource("3_3qttp")
@@ -88,10 +92,22 @@ sources/2 = SubResource("TileSetAtlasSource_7i0e5")
 
 [node name="Level" type="Node2D" unique_id=898447591]
 
-[node name="MousePainter" type="Node" parent="." unique_id=762700113 node_paths=PackedStringArray("map")]
+[node name="MousePainter" type="Node" parent="." unique_id=762700113 node_paths=PackedStringArray("map", "mouse_detector")]
 script = ExtResource("1_y6m4d")
 map = NodePath("..")
 line = ExtResource("2_7i0e5")
+mouse_detector = NodePath("../MouseFollower/MouseDetector")
+
+[node name="MouseFollower" type="Node" parent="." unique_id=39241476]
+
+[node name="MouseDetector" type="Area2D" parent="MouseFollower" unique_id=1139076505 node_paths=PackedStringArray("object")]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("3_guxw8")
+object = NodePath(".")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseFollower/MouseDetector" unique_id=1895995038]
+shape = SubResource("CircleShape2D_b7sxp")
 
 [node name="Vehicle" parent="." unique_id=1312619414 instance=ExtResource("2_3qttp")]
 position = Vector2(100, 150)

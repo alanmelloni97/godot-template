@@ -69,6 +69,12 @@ brake={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="wall"
+2d_physics/layer_2="drawing"
+2d_physics/layer_3="vehicle"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
