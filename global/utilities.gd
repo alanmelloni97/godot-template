@@ -40,15 +40,8 @@ static func duplicate_astar_grid(old_grid: AStarGrid2D) -> AStarGrid2D:
 		if old_point.solid:
 			new_grid.set_point_solid(old_point.id)
 	return new_grid
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
- 
-=======
 
 
->>>>>>> 544d67b145555e0c31f1f7acadf78eed8942666f
 static func create_collision_polygon_from_sprite(_sprite: Sprite2D, _parent: Node2D) -> void:
 	var bitmap = BitMap.new()
 	bitmap.create_from_image_alpha(_sprite.texture.get_image())
@@ -64,4 +57,3 @@ static func create_collision_polygon_from_sprite(_sprite: Sprite2D, _parent: Nod
 		# of the image when "centered" is on. So move it backwards by this amount so it lines up.
 		if _sprite.centered:
 			collision_polygon.position -= bitmap.get_size() / 2.0
->>>>>>> ea6be2825eb38ed56134a75add89c410a0f0b8f3
