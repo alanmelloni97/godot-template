@@ -2,10 +2,11 @@ class_name PaintManager
 extends Node
 
 
-signal added_point()
+signal added_segment(length: float)
 signal added_line()
 signal cant_start_line()
 signal cant_continue_line()
+signal not_enough_ink()
 
 enum State { IDLE, DRAWING, BLOCKED }
 
@@ -16,9 +17,12 @@ enum State { IDLE, DRAWING, BLOCKED }
 var last_point: Vector2
 var points_placed: int = 1
 var state: State = State.IDLE
-
+var has_ink: bool = true
 
 func _physics_process(_delta: float) -> void:
+	if not has_ink:
+		not_enough_ink.emit()
+		return
 	var mouse_pos: Vector2 = map.get_global_mouse_position()
 	if state == State.IDLE:
 		if Input.is_action_just_pressed("draw"):
@@ -65,7 +69,7 @@ func place_segment(a: Vector2, b: Vector2):
 	new_segment.set_segment(a, b)
 	map.add_child(new_segment)
 	points_placed += 1
-	added_point.emit()
+	added_segment.emit(a.distance_to(b))
 
 
 func finish_line():

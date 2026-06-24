@@ -40,7 +40,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg")
 
 [global_group]
 
@@ -80,6 +80,7 @@ change_brush={
 2d_physics/layer_1="wall"
 2d_physics/layer_2="drawing"
 2d_physics/layer_3="vehicle"
+2d_physics/layer_4="pickable"
 
 [physics]
 

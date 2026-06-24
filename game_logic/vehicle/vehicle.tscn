@@ -2,14 +2,34 @@
 
 [ext_resource type="Texture2D" uid="uid://dcn1374aidd3y" path="res://assets/vehicle/chasis.png" id="1_4yp75"]
 [ext_resource type="Script" uid="uid://bslyriwi2wb6o" path="res://game_logic/vehicle/movement_controller.gd" id="1_47aer"]
+[ext_resource type="Script" uid="uid://cajs6lu7djmgi" path="res://game_logic/vehicle/vehicle.gd" id="1_l4tev"]
+[ext_resource type="Script" uid="uid://dqxum3hfqheo6" path="res://game_logic/vehicle/picker_controller.gd" id="1_oe22b"]
 [ext_resource type="PackedScene" uid="uid://cj2u4i1fwfsan" path="res://game_logic/vehicle/wheel_l.tscn" id="2_oe22b"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7sxp"]
-size = Vector2(104, 46)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ys735"]
+radius = 28.0
+height = 116.0
 
-[node name="Vehicle" type="RigidBody2D" unique_id=1312619414]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4tev"]
+radius = 16.0
+height = 76.0
+
+[node name="Vehicle" type="RigidBody2D" unique_id=1312619414 node_paths=PackedStringArray("movement_controller")]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
+can_sleep = false
+script = ExtResource("1_l4tev")
+movement_controller = NodePath("MovementController")
+
+[node name="PickerController" type="Area2D" parent="." unique_id=601464361 node_paths=PackedStringArray("vehicle")]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_oe22b")
+vehicle = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickerController" unique_id=368735409]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_ys735")
 
 [node name="MovementController" type="Node" parent="." unique_id=278805211 node_paths=PackedStringArray("wheels")]
 script = ExtResource("1_47aer")
@@ -19,28 +39,31 @@ MAX_FORWARD_SPEED = 400.0
 MAX_BACKWARD_SPEED = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2063890952]
+position = Vector2(-2.861023e-06, 25)
+scale = Vector2(0.6605505, 0.6808511)
 texture = ExtResource("1_4yp75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1886124015]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_b7sxp")
+position = Vector2(0, 25)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_l4tev")
 
 [node name="PinJointL" type="PinJoint2D" parent="." unique_id=893534584]
 position = Vector2(-31, 25)
 node_a = NodePath("..")
 node_b = NodePath("WheelL")
-softness = 0.5
+softness = 1.0
 
 [node name="WheelL" parent="PinJointL" unique_id=861032443 instance=ExtResource("2_oe22b")]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 
 [node name="PinJointR" type="PinJoint2D" parent="." unique_id=1827734806]
 position = Vector2(28, 25)
 node_a = NodePath("..")
 node_b = NodePath("WheelR")
-softness = 0.5
+softness = 1.0
 
 [node name="WheelR" parent="PinJointR" unique_id=2124128944 instance=ExtResource("2_oe22b")]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15

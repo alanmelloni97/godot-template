@@ -1,9 +1,11 @@
 
 MVP:
+- brush bouncy
+- area of no drawing
 
 
 BUGS:
-
+	- eraser no erasea al clickear sobre linea
 
 
 AFTER:
