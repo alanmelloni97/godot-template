@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://h4hvb7ob1psf"]
+
+[ext_resource type="PackedScene" uid="uid://cirt2ex1q75e2" path="res://game_logic/mouse_painter/segment.tscn" id="1_pgwhg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8qbdi"]
+bounce = 1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pgwhg"]
+resource_local_to_scene = true
+
+[node name="BouncySegment" unique_id=1295697089 instance=ExtResource("1_pgwhg")]
+physics_material_override = SubResource("PhysicsMaterial_8qbdi")
+
+[node name="Line2D" parent="." index="0" unique_id=460932308]
+default_color = Color(0, 0.73971456, 1.92523e-07, 1)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1439377023]
+shape = SubResource("SegmentShape2D_pgwhg")

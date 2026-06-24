@@ -81,6 +81,7 @@ change_brush={
 2d_physics/layer_2="drawing"
 2d_physics/layer_3="vehicle"
 2d_physics/layer_4="pickable"
+2d_physics/layer_5="non_drawing_area"
 
 [physics]
 

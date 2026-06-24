@@ -6,7 +6,8 @@ MVP:
 
 BUGS:
 	- eraser no erasea al clickear sobre linea
-
+	- ultimo punto de linea al entrar en collision no tiene collision shape
 
 AFTER:
 - si se intenta hacer linea desde collider, que se empieze a hacer una vez se salga del collider
+- cambiar audio cuando vehiculo entra en gravity area

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bp7hmf78rccun"]
+
+[ext_resource type="Texture2D" uid="uid://bjoapf7om3oif" path="res://assets/icon.svg" id="1_4utkx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7sxp"]
+resource_local_to_scene = true
+size = Vector2(500, 500)
+
+[node name="InverseGravityArea" type="Area2D" unique_id=1605799056]
+collision_layer = 0
+collision_mask = 4
+gravity_space_override = 3
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=46563448]
+shape = SubResource("RectangleShape2D_b7sxp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745991627]
+modulate = Color(0, 0.5019608, 0.5019608, 0.41568628)
+scale = Vector2(3.984375, 3.984375)
+texture = ExtResource("1_4utkx")

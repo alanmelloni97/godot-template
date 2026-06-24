@@ -1,7 +1,6 @@
 class_name PaintManager
 extends Node
 
-
 signal added_segment(length: float)
 signal added_line()
 signal cant_start_line()
@@ -9,15 +8,18 @@ signal cant_continue_line()
 signal not_enough_ink()
 
 enum State { IDLE, DRAWING, BLOCKED }
-
+enum BrushType { NORMAL, BOUNCY }
 @export var map: Node2D
 @export var segment: PackedScene
+@export var bouncy_segment: PackedScene
 @export var mouse_pointer: Area2D
 @export var POINT_DISTANCE: float = 10
 var last_point: Vector2
 var points_placed: int = 1
 var state: State = State.IDLE
+var brush_type: BrushType = BrushType.NORMAL
 var has_ink: bool = true
+
 
 func _physics_process(_delta: float) -> void:
 	if not has_ink:
@@ -50,7 +52,8 @@ func try_start_line(mouse_pos: Vector2):
 
 
 func try_placement(mouse_pos: Vector2) -> bool:
-	if mouse_pointer.has_overlapping_bodies():
+	# bodies: vehicle, tilemap; Areas: non drawable area
+	if mouse_pointer.has_overlapping_bodies() or mouse_pointer.has_overlapping_areas():
 		cant_continue_line.emit()
 		finish_line()
 		state = State.BLOCKED
@@ -65,7 +68,11 @@ func try_placement(mouse_pos: Vector2) -> bool:
 
 
 func place_segment(a: Vector2, b: Vector2):
-	var new_segment: Segment = segment.instantiate()
+	var new_segment: Segment
+	if brush_type == BrushType.NORMAL:
+		new_segment = segment.instantiate()
+	elif brush_type == BrushType.BOUNCY:
+		new_segment = bouncy_segment.instantiate()
 	new_segment.set_segment(a, b)
 	map.add_child(new_segment)
 	points_placed += 1

@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://xddo5rw3edos" path="res://game_logic/level/vehicle_handler.gd" id="8_mk500"]
 [ext_resource type="Script" uid="uid://5m54qnyt4im6" path="res://game_logic/level/brush_changer.gd" id="11_r3lsm"]
 [ext_resource type="PackedScene" uid="uid://djhe7gkfow7tm" path="res://game_logic/ui/ui.tscn" id="12_gjdk2"]
+[ext_resource type="PackedScene" uid="uid://h4hvb7ob1psf" path="res://game_logic/mouse_painter/bouncy_segment.tscn" id="12_mk500"]
 [ext_resource type="PackedScene" uid="uid://bypog2gpbe4rs" path="res://game_logic/level/finish_point.tscn" id="14_kgwp0"]
 [ext_resource type="Script" uid="uid://dcvfni3qaudmr" path="res://game_logic/level/cheat_debug.gd" id="18_tsqra"]
 
@@ -156,11 +157,12 @@ paint_manager = NodePath("PaintManager")
 script = ExtResource("1_y6m4d")
 map = NodePath("../../..")
 segment = ExtResource("3_oyh4j")
+bouncy_segment = ExtResource("12_mk500")
 mouse_pointer = NodePath("PaintBrush")
 
 [node name="PaintBrush" type="Area2D" parent="Nodes/BrushHandler/PaintManager" unique_id=1139076505 node_paths=PackedStringArray("object")]
 collision_layer = 0
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("3_guxw8")
 object = NodePath(".")
 
