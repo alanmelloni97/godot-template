@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_xaqaq"]
 script = ExtResource("1_drcd1")
-levels_beaten = 2
+levels_beaten = 3
 
 [resource]
 script = ExtResource("2_oxi24")

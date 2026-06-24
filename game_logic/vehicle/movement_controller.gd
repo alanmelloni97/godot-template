@@ -6,6 +6,8 @@ class_name MovementController
 @export var MAX_FORWARD_SPEED: float
 @export var MAX_BACKWARD_SPEED: float
 var enabled: bool = true
+@export var vehicle: Vehicle
+
 
 func _physics_process(_delta: float) -> void:
 	var input: float = Input.get_axis("brake", "accelerate")
@@ -15,6 +17,7 @@ func _physics_process(_delta: float) -> void:
 		return
 	for wheel in wheels:
 		wheel.apply_torque(input * FORCE)
+	vehicle.force_applied.emit(abs(input))
 	
 	
 func is_at_max_speed(input: float) -> bool:

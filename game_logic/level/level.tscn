@@ -13,16 +13,16 @@
 [ext_resource type="Script" uid="uid://b3n0reggskko0" path="res://game_logic/level/line_eraser.gd" id="3_sf1xj"]
 [ext_resource type="Script" uid="uid://cbqo06uy2diai" path="res://game_logic/level/level_handler.gd" id="5_fld2p"]
 [ext_resource type="Script" uid="uid://b3vtq3rbwn4lk" path="res://game_logic/level/ui_handler.gd" id="6_ccrwu"]
+[ext_resource type="Script" uid="uid://xddo5rw3edos" path="res://game_logic/level/vehicle_handler.gd" id="8_mk500"]
 [ext_resource type="Script" uid="uid://5m54qnyt4im6" path="res://game_logic/level/brush_changer.gd" id="11_r3lsm"]
 [ext_resource type="PackedScene" uid="uid://djhe7gkfow7tm" path="res://game_logic/ui/ui.tscn" id="12_gjdk2"]
-[ext_resource type="PackedScene" uid="uid://c4xn0o0x0tnk6" path="res://game_logic/pickable/ink_pickable.tscn" id="13_itpdc"]
 [ext_resource type="PackedScene" uid="uid://bypog2gpbe4rs" path="res://game_logic/level/finish_point.tscn" id="14_kgwp0"]
 [ext_resource type="Script" uid="uid://dcvfni3qaudmr" path="res://game_logic/level/cheat_debug.gd" id="18_tsqra"]
 
 [sub_resource type="Resource" id="Resource_lr5g8"]
 resource_local_to_scene = true
 script = ExtResource("2_2b3s1")
-fuel = 100.0
+fuel = 500.0
 ink = 3000.0
 metadata/_custom_type_script = "uid://cyc21lkuhi4hj"
 
@@ -142,6 +142,11 @@ level = NodePath("../..")
 paint_manager = NodePath("../BrushHandler/PaintManager")
 vehicle = NodePath("../../Vehicle")
 
+[node name="VehicleHandler" type="Node" parent="Nodes" unique_id=602005886 node_paths=PackedStringArray("level", "vehicle")]
+script = ExtResource("8_mk500")
+level = NodePath("../..")
+vehicle = NodePath("../../Vehicle")
+
 [node name="BrushHandler" type="Node" parent="Nodes" unique_id=1732159357 node_paths=PackedStringArray("level", "paint_manager")]
 script = ExtResource("1_oyh4j")
 level = NodePath("../..")
@@ -181,10 +186,7 @@ paint_manager = NodePath("../PaintManager")
 erase_manager = NodePath("../EraseManager")
 
 [node name="Vehicle" parent="." unique_id=1312619414 instance=ExtResource("2_3qttp")]
-position = Vector2(100, 150)
-
-[node name="InkPickable" parent="." unique_id=1137449637 instance=ExtResource("13_itpdc")]
-position = Vector2(403, 165)
+position = Vector2(266, 243)
 
 [node name="FinishPoint" parent="." unique_id=582356040 instance=ExtResource("14_kgwp0")]
 position = Vector2(1866, 523)

@@ -3,6 +3,7 @@ class_name Vehicle
 
 @warning_ignore_start("unused_signal")
 signal picked(pick: Pickable)
+signal force_applied(force: float)
 
 @export var movement_controller: MovementController
 

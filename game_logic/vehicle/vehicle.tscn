@@ -31,12 +31,13 @@ vehicle = NodePath("..")
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_ys735")
 
-[node name="MovementController" type="Node" parent="." unique_id=278805211 node_paths=PackedStringArray("wheels")]
+[node name="MovementController" type="Node" parent="." unique_id=278805211 node_paths=PackedStringArray("wheels", "vehicle")]
 script = ExtResource("1_47aer")
 wheels = [NodePath("../PinJointL/WheelL"), NodePath("../PinJointR/WheelR")]
 FORCE = 20000.0
 MAX_FORWARD_SPEED = 400.0
 MAX_BACKWARD_SPEED = 200.0
+vehicle = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2063890952]
 position = Vector2(-2.861023e-06, 25)
