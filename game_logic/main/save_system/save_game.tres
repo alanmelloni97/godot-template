@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GameSave" format=3]
+
+[ext_resource type="Script" path="res://game_logic/game_stats.gd" id="1_drcd1"]
+[ext_resource type="Script" path="res://game_logic/main/save_system/game_save.gd" id="2_oxi24"]
+
+[sub_resource type="Resource" id="Resource_xaqaq"]
+script = ExtResource("1_drcd1")
+levels_beaten = 2
+
+[resource]
+script = ExtResource("2_oxi24")
+game_stats = SubResource("Resource_xaqaq")

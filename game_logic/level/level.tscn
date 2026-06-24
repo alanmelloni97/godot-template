@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://svrg2r0m212r" path="res://assets/tileset/sheet.png" id="3_3qttp"]
 [ext_resource type="Script" uid="uid://bfw2xskpytgek" path="res://components/mouse_follower/mouse_follower.gd" id="3_guxw8"]
 [ext_resource type="PackedScene" uid="uid://cirt2ex1q75e2" path="res://game_logic/mouse_painter/segment.tscn" id="3_oyh4j"]
+[ext_resource type="Texture2D" uid="uid://bjoapf7om3oif" path="res://assets/icon.svg" id="3_pigkl"]
 [ext_resource type="Script" uid="uid://b3n0reggskko0" path="res://game_logic/level/line_eraser.gd" id="3_sf1xj"]
 [ext_resource type="Script" uid="uid://cbqo06uy2diai" path="res://game_logic/level/level_handler.gd" id="5_fld2p"]
 [ext_resource type="Script" uid="uid://b3vtq3rbwn4lk" path="res://game_logic/level/ui_handler.gd" id="6_ccrwu"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://djhe7gkfow7tm" path="res://game_logic/ui/ui.tscn" id="12_gjdk2"]
 [ext_resource type="PackedScene" uid="uid://c4xn0o0x0tnk6" path="res://game_logic/pickable/ink_pickable.tscn" id="13_itpdc"]
 [ext_resource type="PackedScene" uid="uid://bypog2gpbe4rs" path="res://game_logic/level/finish_point.tscn" id="14_kgwp0"]
+[ext_resource type="Script" uid="uid://dcvfni3qaudmr" path="res://game_logic/level/cheat_debug.gd" id="18_tsqra"]
 
 [sub_resource type="Resource" id="Resource_lr5g8"]
 resource_local_to_scene = true
@@ -114,6 +116,7 @@ radius = 15.0
 [node name="Level" type="Node2D" unique_id=898447591]
 script = ExtResource("1_pfqnv")
 stats = SubResource("Resource_lr5g8")
+icon = ExtResource("3_pigkl")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1314931675]
 tile_map_data = PackedByteArray("AAAAABAAAgABAAIAAAABABAAAgABAAIAAAACABAAAgABAAIAAAADABAAAgABAAIAAAAEABAAAgABAAIAAAAFABAAAgABAAIAAAAGABAAAgABAAIAAAAHABAAAgABAAIAAAAIABAAAgABAAIAAAAJABAAAgABAAIAAAAKABAAAgABAAIAAAALABAAAgABAAIAAAAMABAAAgABAAIAAAANABAAAgABAAIAAAAOABAAAgABAAIAAAAPABAAAgABAAIAAAAQABAAAgABAAIAAAARABAAAgABAAIAAAASABAAAgABAAIAAAATABAAAgABAAIAAAAUABAAAgABAAIAAAAVABAAAgABAAIAAAAWABAAAgABAAIAAAAXABAAAgABAAIAAAAYABAAAgABAAIAAAAZABAAAgABAAIAAAAaABAAAgABAAIAAAAbABAAAgABAAIAAAAAAAAAAgABAAIAAAABAAAAAgABAAIAAAACAAAAAgABAAIAAAADAAAAAgABAAIAAAAEAAAAAgABAAIAAAAFAAAAAgABAAIAAAAGAAAAAgABAAIAAAAHAAAAAgABAAIAAAAIAAAAAgABAAIAAAAJAAAAAgABAAIAAAAKAAAAAgABAAIAAAALAAAAAgABAAIAAAAMAAAAAgABAAIAAAANAAAAAgABAAIAAAAOAAAAAgABAAIAAAAPAAAAAgABAAIAAAAQAAAAAgABAAIAAAARAAAAAgABAAIAAAASAAAAAgABAAIAAAATAAAAAgABAAIAAAAUAAAAAgABAAIAAAAVAAAAAgABAAIAAAAWAAAAAgABAAIAAAAXAAAAAgABAAIAAAAYAAAAAgABAAIAAAAZAAAAAgABAAIAAAAaAAAAAgABAAIAAAAbAAAAAgABAAIAAAAcAAAAAgABAAIAAAAdAAAAAgABAAIAAAAcABAAAgABAAIAAAAdABAAAgABAAIAAAAAAAEAAgABAAIAAAAAAAIAAgABAAIAAAAAAAMAAgABAAIAAAAAAAQAAgABAAIAAAAAAAUAAgABAAIAAAAAAAYAAgABAAIAAAAAAAcAAgABAAIAAAAAAAgAAgABAAIAAAAAAAkAAgABAAIAAAAAAAoAAgABAAIAAAAAAAsAAgABAAIAAAAAAAwAAgABAAIAAAAAAA0AAgABAAIAAAAAAA4AAgABAAIAAAAAAA8AAgABAAIAAAAdAA8AAgABAAIAAAAdAA4AAgABAAIAAAAdAA0AAgABAAIAAAAdAAwAAgABAAIAAAAdAAsAAgABAAIAAAAdAAoAAgABAAIAAAAdAAkAAgABAAIAAAAdAAgAAgABAAIAAAAdAAcAAgABAAIAAAAdAAYAAgABAAIAAAAdAAUAAgABAAIAAAAdAAQAAgABAAIAAAAdAAMAAgABAAIAAAAdAAIAAgABAAIAAAAdAAEAAgABAAIAAAA=")
@@ -192,3 +195,7 @@ zoom = Vector2(0.885, 0.885)
 
 [node name="UIManager" parent="." unique_id=1732020428 node_paths=PackedStringArray("level") instance=ExtResource("12_gjdk2")]
 level = NodePath("..")
+
+[node name="CheatDebug" type="Node" parent="." unique_id=1687477403 node_paths=PackedStringArray("level_handler")]
+script = ExtResource("18_tsqra")
+level_handler = NodePath("../Nodes/LevelHandler")

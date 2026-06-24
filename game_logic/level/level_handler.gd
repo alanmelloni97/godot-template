@@ -14,11 +14,14 @@ func _ready() -> void:
 	ui_manager.paused.connect(_on_pause)
 	ui_manager.quit.connect(_on_quit)
 	ui_manager.next_level.connect(_on_next_level)
+	ui_manager.levels_menu.connect(_on_levels_menu)
 
 
 func _on_level_finished():
 	vehicle.disable_input(true)
 	level.won.emit()
+	Game.game_stats.levels_beaten += 1
+	MainSignalBus.requested_save.emit()
 
 
 func _on_restart():
@@ -30,7 +33,11 @@ func _on_quit():
 
 
 func _on_next_level():
-	MainSignalBus.requested_scene_change.emit(Scenes.levels[Game.game_stats.current_level + 1])
+	MainSignalBus.requested_scene_change.emit(Scenes.levels[Game.game_stats.levels_beaten + 1])
+
+
+func _on_levels_menu():
+	MainSignalBus.requested_scene_change.emit(Scenes.levels_menu)
 
 
 func _on_pause(paused: bool):

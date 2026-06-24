@@ -1,4 +1,4 @@
 class_name GameStats
 extends Resource
 
-var current_level: int
+@export_storage var levels_beaten: int = 1

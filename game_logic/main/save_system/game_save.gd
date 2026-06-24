@@ -1,4 +1,4 @@
 class_name GameSave
 extends Resource
 
-@export var game_stats: GameStats
+@export_storage var game_stats: GameStats

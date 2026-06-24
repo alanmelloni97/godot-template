@@ -2,10 +2,11 @@
 MVP:
 - brush bouncy
 - area of no drawing
-
+- portales
 
 BUGS:
 	- eraser no erasea al clickear sobre linea
 
 
 AFTER:
+- si se intenta hacer linea desde collider, que se empieze a hacer una vez se salga del collider

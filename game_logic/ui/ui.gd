@@ -24,5 +24,5 @@ func _ready() -> void:
 
 func show_won_menu():
 	won_menu.show()
-	won_menu.level_menu_pressed.connect(next_level.emit)
+	won_menu.next_level_pressed.connect(next_level.emit)
 	won_menu.level_menu_pressed.connect(levels_menu.emit)

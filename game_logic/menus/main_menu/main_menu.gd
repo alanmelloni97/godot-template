@@ -3,8 +3,7 @@ extends CanvasLayer
 
 
 func _on_play_button_pressed() -> void:
-	pass
-	#MainSignalBus.requested_scene_change.emit(null, null)
+	MainSignalBus.requested_scene_change.emit(Scenes.levels_menu, null)
 
 
 func _on_quit_button_pressed() -> void:
