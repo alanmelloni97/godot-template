@@ -6,11 +6,45 @@
 [ext_resource type="Script" uid="uid://cxdpv1irbf7pu" path="res://global/main_signal_bus.gd" id="4_eaqoi"]
 [ext_resource type="PackedScene" uid="uid://0tguoaxhermy" path="res://game_logic/main/main.tscn" id="5_2q8hc"]
 [ext_resource type="PackedScene" uid="uid://c5eyic67inbxd" path="res://game_logic/menus/main_menu/main_menu.tscn" id="6_2q8hc"]
+[ext_resource type="PackedScene" uid="uid://h8otmkvh6n3w" path="res://game_logic/menus/levels_menu/levels_menu.tscn" id="7_713nd"]
+[ext_resource type="PackedScene" uid="uid://deknwytbin24p" path="res://game_logic/level/level.tscn" id="8_rg5ns"]
+[ext_resource type="Script" uid="uid://cyc21lkuhi4hj" path="res://game_logic/level/level_stats.gd" id="9_mwe47"]
+[ext_resource type="PackedScene" uid="uid://dmxmdl18exkia" path="res://game_logic/level/levels/level_1.tscn" id="10_1o6ay"]
+[ext_resource type="PackedScene" uid="uid://72d2g2g7uoel" path="res://game_logic/level/levels/level_2.tscn" id="11_vc55p"]
+[ext_resource type="PackedScene" uid="uid://cyn2uj1x70i1w" path="res://game_logic/level/levels/level_3.tscn" id="12_tl5se"]
 
 [sub_resource type="GDScript" id="GDScript_uqgls"]
 script/source = "@icon(\"res://assets/godot_icons/icon_shape.png\")
 extends Node
 "
+
+[sub_resource type="Resource" id="Resource_n6ju1"]
+resource_local_to_scene = true
+script = ExtResource("9_mwe47")
+fuel = 100.0
+ink = 3000.0
+metadata/_custom_type_script = "uid://cyc21lkuhi4hj"
+
+[sub_resource type="Resource" id="Resource_opo0x"]
+resource_local_to_scene = true
+script = ExtResource("9_mwe47")
+fuel = 100.0
+ink = 3000.0
+metadata/_custom_type_script = "uid://cyc21lkuhi4hj"
+
+[sub_resource type="Resource" id="Resource_bs1kt"]
+resource_local_to_scene = true
+script = ExtResource("9_mwe47")
+fuel = 100.0
+ink = 3000.0
+metadata/_custom_type_script = "uid://cyc21lkuhi4hj"
+
+[sub_resource type="Resource" id="Resource_kr32e"]
+resource_local_to_scene = true
+script = ExtResource("9_mwe47")
+fuel = 100.0
+ink = 3000.0
+metadata/_custom_type_script = "uid://cyc21lkuhi4hj"
 
 [node name="Diorama" type="Node" unique_id=1537340114]
 script = SubResource("GDScript_uqgls")
@@ -33,4 +67,20 @@ script = ExtResource("4_eaqoi")
 
 [node name="MainMenu" parent="Scenes" unique_id=1286326675 instance=ExtResource("6_2q8hc")]
 
+[node name="LevelsMenu" parent="Scenes" unique_id=1758154058 instance=ExtResource("7_713nd")]
+
+[node name="Level" parent="Scenes" unique_id=898447591 instance=ExtResource("8_rg5ns")]
+stats = SubResource("Resource_n6ju1")
+
+[node name="Level1" parent="Scenes/Level" unique_id=821812152 instance=ExtResource("10_1o6ay")]
+stats = SubResource("Resource_opo0x")
+
+[node name="Level2" parent="Scenes/Level" unique_id=520309515 instance=ExtResource("11_vc55p")]
+stats = SubResource("Resource_bs1kt")
+
+[node name="Level3" parent="Scenes/Level" unique_id=1134915370 instance=ExtResource("12_tl5se")]
+stats = SubResource("Resource_kr32e")
+
 [node name="GameObjects" type="Node" parent="." unique_id=1372238154]
+
+[node name="TODO" type="Node" parent="." unique_id=373436929]

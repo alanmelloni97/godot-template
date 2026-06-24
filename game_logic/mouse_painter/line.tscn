@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dcln0f8nou1u7"]
+
+[node name="Line2D" type="Line2D" unique_id=988227299]
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+antialiased = true
