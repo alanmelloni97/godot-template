@@ -41,7 +41,12 @@ static func duplicate_astar_grid(old_grid: AStarGrid2D) -> AStarGrid2D:
 			new_grid.set_point_solid(old_point.id)
 	return new_grid
 
+<<<<<<< HEAD
  
+=======
+
+
+>>>>>>> 544d67b145555e0c31f1f7acadf78eed8942666f
 static func create_collision_polygon_from_sprite(_sprite: Sprite2D, _parent: Node2D) -> void:
 	var bitmap = BitMap.new()
 	bitmap.create_from_image_alpha(_sprite.texture.get_image())
