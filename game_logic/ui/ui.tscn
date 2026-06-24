@@ -2,50 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dui1s28tpil41" path="res://game_logic/ui/ui.gd" id="1_2fwl4"]
 [ext_resource type="PackedScene" uid="uid://cb7q0lk1f7eup" path="res://components/ui/Pause/pause.tscn" id="3_e6gg6"]
-[ext_resource type="Script" uid="uid://bapg316oqver7" path="res://game_logic/ui/progressbars.gd" id="3_r37cu"]
-[ext_resource type="PackedScene" uid="uid://cnhpldmjhhgdx" path="res://game_logic/ui/won_menu.tscn" id="4_oofs6"]
 
-[node name="UIManager" type="CanvasLayer" unique_id=1732020428 node_paths=PackedStringArray("_pause", "won_menu", "restart_button")]
+[node name="UIManager" type="CanvasLayer" unique_id=1732020428 node_paths=PackedStringArray("_pause")]
 script = ExtResource("1_2fwl4")
 _pause = NodePath("Pause")
-won_menu = NodePath("WonMenu")
-restart_button = NodePath("RestartButton")
 
 [node name="Pause" parent="." unique_id=679988837 instance=ExtResource("3_e6gg6")]
 mouse_filter = 2
-
-[node name="Progressbars" type="HBoxContainer" parent="." unique_id=1518803090 node_paths=PackedStringArray("ink_bar", "fuel_bar", "ui_manager")]
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-script = ExtResource("3_r37cu")
-ink_bar = NodePath("InkBar")
-fuel_bar = NodePath("FuelBar")
-ui_manager = NodePath("..")
-
-[node name="InkBar" type="ProgressBar" parent="Progressbars" unique_id=1735875209]
-custom_minimum_size = Vector2(10, 30)
-layout_mode = 2
-size_flags_horizontal = 3
-show_percentage = false
-
-[node name="FuelBar" type="ProgressBar" parent="Progressbars" unique_id=1015297358]
-custom_minimum_size = Vector2(10, 30)
-layout_mode = 2
-size_flags_horizontal = 3
-show_percentage = false
-
-[node name="WonMenu" parent="." unique_id=423683321 instance=ExtResource("4_oofs6")]
-visible = false
-
-[node name="RestartButton" type="Button" parent="." unique_id=1239498704]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -8.0
-offset_right = 8.0
-grow_vertical = 0
-text = "RESTART
-"

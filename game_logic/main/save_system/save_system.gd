@@ -6,7 +6,7 @@ var _save_path: NodePath
 
 func _ready() -> void:
 	if OS.is_debug_build(): # If running on editor or debug build
-		_save_path = "res://game_logic/main/save_system/save_game.tres"
+		_save_path = "res://main/save_system/save_game.tres"
 	else: # if release build
 		_save_path = "user://save_game.tres"
 

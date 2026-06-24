@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SS2D_Material_Edge" load_steps=7 format=3 uid="uid://c8q2nrxnbopbb"]
+[gd_resource type="Resource" script_class="SS2D_Material_Edge" format=3 uid="uid://c8q2nrxnbopbb"]
 
 [ext_resource type="Script" uid="uid://d0xjijisx1woh" path="res://addons/rmsmartshape/materials/edge_material.gd" id="1_lbfns"]
 [ext_resource type="Texture2D" uid="uid://b3aqa3bj1osvp" path="res://examples/sharp_corner_tapering/assets/tex_metal_edge.png" id="2_bmjh3"]

@@ -2,13 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqd0tte0w2csq" path="res://global/scenes.gd" id="1_4wh4c"]
 [ext_resource type="PackedScene" uid="uid://c5eyic67inbxd" path="res://game_logic/menus/main_menu/main_menu.tscn" id="2_aaa60"]
-[ext_resource type="PackedScene" uid="uid://h8otmkvh6n3w" path="res://game_logic/menus/levels_menu/levels_menu.tscn" id="3_a3ah8"]
-[ext_resource type="PackedScene" uid="uid://dmxmdl18exkia" path="res://game_logic/level/levels/level_1.tscn" id="3_texgp"]
-[ext_resource type="PackedScene" uid="uid://72d2g2g7uoel" path="res://game_logic/level/levels/level_2.tscn" id="4_a3ah8"]
-[ext_resource type="PackedScene" uid="uid://cyn2uj1x70i1w" path="res://game_logic/level/levels/level_3.tscn" id="5_roqr7"]
 
 [node name="Scenes" type="Node" unique_id=1521295893]
 script = ExtResource("1_4wh4c")
 main_menu = ExtResource("2_aaa60")
-levels_menu = ExtResource("3_a3ah8")
-levels = Array[PackedScene]([ExtResource("3_texgp"), ExtResource("4_a3ah8"), ExtResource("5_roqr7")])

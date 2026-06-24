@@ -1,5 +1,3 @@
 [gd_resource type="Theme" format=3 uid="uid://c0x6nj3iyepqs"]
 
 [resource]
-default_font_size = 50
-Label/colors/font_color = Color(0, 0, 0, 1)
