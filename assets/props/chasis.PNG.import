@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxc8ry1xq5xpj"
-path="res://.godot/imported/finish_point.png-e80e415b1b68fd9c982afa29a4ee3e8b.ctex"
+uid="uid://lh10tstutwyn"
+path="res://.godot/imported/chasis.PNG-45cd0cbc7dc72a2d408df3d7121e8c42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/props/finish_point.png"
-dest_files=["res://.godot/imported/finish_point.png-e80e415b1b68fd9c982afa29a4ee3e8b.ctex"]
+source_file="res://assets/props/chasis.PNG"
+dest_files=["res://.godot/imported/chasis.PNG-45cd0cbc7dc72a2d408df3d7121e8c42.ctex"]
 
 [params]
 
