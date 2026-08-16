@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://0tguoaxhermy"]
+
+[ext_resource type="Script" uid="uid://8510d5gyhgcw" path="res://game_logic/main/main.gd" id="1_yh5la"]
+[ext_resource type="Script" uid="uid://bnn0q1nj0r7ip" path="res://game_logic/main/save_system/save_system.gd" id="2_qvhan"]
+[ext_resource type="Script" uid="uid://ci0bfno7m6u7h" path="res://game_logic/main/save_system/specific_static_save.gd" id="3_liyct"]
+[ext_resource type="Script" uid="uid://b0dvddvx114dr" path="res://game_logic/main/music_manager.gd" id="6_4dugh"]
+[ext_resource type="Script" uid="uid://dsxqhy2yc5ld3" path="res://game_logic/main/preloading.gd" id="8_bsumw"]
+[ext_resource type="Script" uid="uid://d3ddtgq87jpug" path="res://game_logic/main/platform_config.gd" id="9_phvla"]
+[ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://components/debug_menu/debug_menu.tscn" id="10_0i4oc"]
+[ext_resource type="Script" uid="uid://daspn2nksgh1t" path="res://game_logic/main/specific_config.gd" id="10_u3llg"]
+[ext_resource type="Script" uid="uid://cn3qv486giv3t" path="res://game_logic/main/debug_version_warning.gd" id="10_yyosa"]
+
+[node name="Main" type="Node" unique_id=1384278331 node_paths=PackedStringArray("save_system", "music_manager")]
+script = ExtResource("1_yh5la")
+save_system = NodePath("SaveSystem")
+music_manager = NodePath("MusicManager")
+
+[node name="SaveSystem" type="Node" parent="." unique_id=980112996 node_paths=PackedStringArray("specific_static_save")]
+script = ExtResource("2_qvhan")
+specific_static_save = NodePath("SpecificStaticSave")
+
+[node name="SpecificStaticSave" type="Node" parent="SaveSystem" unique_id=41538082]
+script = ExtResource("3_liyct")
+
+[node name="MusicManager" type="Node" parent="." unique_id=124095115 node_paths=PackedStringArray("audio_stream_player")]
+process_mode = 3
+script = ExtResource("6_4dugh")
+audio_stream_player = NodePath("AudioStreamPlayer")
+FADE_IN_SECONDS = 2.0
+FADE_OUT_SECONDS = 1.0
+FADE_DB = -70
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager" unique_id=1866995240]
+autoplay = true
+bus = &"Music"
+
+[node name="Preloading" type="Node" parent="." unique_id=731860452]
+script = ExtResource("8_bsumw")
+
+[node name="PlatformConfig" type="Node" parent="." unique_id=1742208959]
+script = ExtResource("9_phvla")
+desktop_fullscreen = true
+mobile_fullscreen = true
+
+[node name="SpecificConfig" type="Node" parent="PlatformConfig" unique_id=1798769233]
+script = ExtResource("10_u3llg")
+
+[node name="Debug" type="Node" parent="." unique_id=1501643212]
+script = ExtResource("10_yyosa")
+
+[node name="PerformanceStats" parent="Debug" unique_id=790871561 instance=ExtResource("10_0i4oc")]
+
+[node name="DebugLabel" type="Label" parent="Debug/PerformanceStats" unique_id=746129032]
+modulate = Color(0.92493343, 0, 0.23296982, 1)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "DEBUG VERSION"
+horizontal_alignment = 1
+vertical_alignment = 1

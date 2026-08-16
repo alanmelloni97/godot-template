@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://sjfue7114hiq"]
+
+[ext_resource type="Script" uid="uid://62o6dv76a3de" path="res://global/scene_manager.gd" id="1_dh56d"]
+[ext_resource type="PackedScene" uid="uid://btdxfw2ejjx0y" path="res://global/scenes.tscn" id="2_frfjl"]
+[ext_resource type="Script" uid="uid://ba51771p4si4f" path="res://global/utilities.gd" id="3_wipum"]
+[ext_resource type="PackedScene" uid="uid://0tguoaxhermy" path="res://game_logic/main/main.tscn" id="4_yafyr"]
+[ext_resource type="PackedScene" uid="uid://c5eyic67inbxd" path="res://game_logic/menus/main_menu/main_menu.tscn" id="5_wgsu7"]
+
+[sub_resource type="GDScript" id="GDScript_uqgls"]
+script/source = "@icon(\"res://assets/godot_icons/icon_shape.png\")
+extends Node
+"
+
+[node name="Diorama" type="Node" unique_id=1537340114]
+script = SubResource("GDScript_uqgls")
+
+[node name="Globals" type="Node" parent="." unique_id=269561914]
+
+[node name="SceneManager" type="Node" parent="Globals" unique_id=1097115373]
+script = ExtResource("1_dh56d")
+
+[node name="Scenes" parent="Globals" unique_id=1521295893 instance=ExtResource("2_frfjl")]
+
+[node name="Utilities" type="Node" parent="Globals" unique_id=1080340552]
+script = ExtResource("3_wipum")
+
+[node name="Main" parent="." unique_id=1384278331 instance=ExtResource("4_yafyr")]
+
+[node name="Scenes" type="Node" parent="." unique_id=222407961]
+
+[node name="MainMenu" parent="Scenes" unique_id=1286326675 instance=ExtResource("5_wgsu7")]
+
+[node name="GameObjects" type="Node" parent="." unique_id=1372238154]

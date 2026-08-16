@@ -70,16 +70,15 @@ func foo():
 
 - Sprite2D:
 	To generate a CollisionPolygon2D from a sprite, there is an option to do so from the editor. To
-	do it with code, the bitman class has to be used: 
+	do it with code, the bitman class has to be used:
 		https://shaggydev.com/2022/04/13/sprite-collision-polygons/
 
 - Build from source to optimize size:
 	The godot configuration tool to remove unused classes will remove necesary features. To today,
 	the build.gdbuild has to be edited to remove the following lines:
 		Mutex
-	
+
 	On top of applying this tool, a couple of extra commands can be used:
 		optimize=size_extra
 	Also, from the configuratino tool, the advanced text server can be disabled and the fallback
 	enabled (not made by default)
-		
