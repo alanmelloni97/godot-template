@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://bnn0q1nj0r7ip" path="res://game_logic/main/save_system/save_system.gd" id="2_qvhan"]
 [ext_resource type="Script" uid="uid://ci0bfno7m6u7h" path="res://game_logic/main/save_system/specific_static_save.gd" id="3_liyct"]
 [ext_resource type="Script" uid="uid://b0dvddvx114dr" path="res://game_logic/main/music_manager.gd" id="6_4dugh"]
+[ext_resource type="Script" uid="uid://bqyhwwv0nxvyq" path="res://game_logic/main/achievements_tracker.gd" id="7_phvla"]
 [ext_resource type="Script" uid="uid://dsxqhy2yc5ld3" path="res://game_logic/main/preloading.gd" id="8_bsumw"]
 [ext_resource type="Script" uid="uid://d3ddtgq87jpug" path="res://game_logic/main/platform_config.gd" id="9_phvla"]
 [ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://components/debug_menu/debug_menu.tscn" id="10_0i4oc"]
-[ext_resource type="Script" uid="uid://daspn2nksgh1t" path="res://game_logic/main/specific_config.gd" id="10_u3llg"]
 [ext_resource type="Script" uid="uid://cn3qv486giv3t" path="res://game_logic/main/debug_version_warning.gd" id="10_yyosa"]
 
 [node name="Main" type="Node" unique_id=1384278331 node_paths=PackedStringArray("save_system", "music_manager")]
@@ -42,8 +42,8 @@ script = ExtResource("9_phvla")
 desktop_fullscreen = true
 mobile_fullscreen = true
 
-[node name="SpecificConfig" type="Node" parent="PlatformConfig" unique_id=1798769233]
-script = ExtResource("10_u3llg")
+[node name="AchievementsTracker" type="Node" parent="." unique_id=1664697584]
+script = ExtResource("7_phvla")
 
 [node name="Debug" type="Node" parent="." unique_id=1501643212]
 script = ExtResource("10_yyosa")

@@ -1,7 +1,7 @@
 @icon("res://assets/godot_icons/icon_hammer.png")
 class_name PlatformConfig
 extends Node
-
+# configure here to avoid having to manually set fullscreen before exporting
 @export var desktop_fullscreen: bool
 @export var mobile_fullscreen: bool
 @export var mobile_stretch_aspect: bool

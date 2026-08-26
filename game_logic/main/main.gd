@@ -9,7 +9,7 @@ extends Node
 
 func _ready() -> void:
 	main()
-
+	
 
 func main():
 	# Start game

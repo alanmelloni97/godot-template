@@ -1,13 +1,88 @@
+- @export: Always use @export, never @onready or a $(node_name), so that the tree can be edited without losing references.
+use @export_group for the node exports, as to separate them from normal exports used to configure the scene.
+ex: sprite2D -> @export_group. max_jump_distance -> @export
 
-todo
+- Managers and Handlers: To add a specific function to a scene, use an individual script on a Node that only knows about this 
+functionality and nothing else. Its external parameters should only be built-in nodes, like sprite or rigidbodies.
+This node should be called "Manager". Since it cant know what is happening outside of it, another separate script
+should handle the manager. It should observe other scripts and react by calling the manager functions. It should
+be called "Handler". This handler only reacts to other managers signals and acts on that, it should not have
+logic regarding the functionality, that logic has to go into the manager. Handlers shall connect to other handlers.
+Put the manager under the handler in the tree to show that the manager is isolated. This can be ignored for 
+any hierarchy needs (ex: the level handler). All Managers should emit signals that will be picked up by other Handlers,
+which in response will call functions on their respective manager. Ex: TODO
+
+- Root script: The root node of the scene should not have logic. No _ready, _process or signal reactions. It should have
+public variables and functions that are expected from it. This public functions should be wrappers that call
+a function in another subnode's script. All the logic regarding the level should be on a Handler (LevelHandler), 
+which controls, pause, functions that decide to end the level, etc. The Level root node can be Interpretated as a
+Manager, only that the handler will go under it in the scene-tree insted of on top. If the rootnode is anything
+other than a plain Node, Node2D or Node3D, like a rigid or characterbody, it should still have no logic. The movement
+must be done in a MovementManager with an exportedrigidbody variable.
+
+- Autoloads: use a Node scene if @export are needed, else autoload a script. they should be used as sparsely as possible.
+A reference should always be passed instead of saving it on a global variable. Some exceptions apply:
+	- Utilities: project-agnostic functions. They should be on every project. I prefer to use static instead of autoload.
+	- Scenes: saving all scenes in an array to be used by the scene manager
+	- TempSave: for temporary saving, only stored for the game session. Used to, for example, save last position of 
+	a UI character selector, or to save the fact that the player has moved and thus hide the tutorial buttons.
+	- SignalToMain: global signals that inform the main scene to react. Only scripts on Main scene should react to
+	these signals. Ex: signals about: changing scenes, saving achievements info, playing ads, informing about game start
+	and stop events.
+	-BuildConfig: variables setting the difficulty, settings, etc. that correspond to the version. Useful to have
+	different settings for pc, android, web, etc, that have to be accessed by other scenes.
+If some logic should be always present independently of which scene is playing, like a save system, or only present at
+the start of the game but doesnt need to be inside any particular scene, like a game setting configurator, use a plain
+node in Main, instead of an autoload. See below:
+
+- Main: the project should have a main scene that will always be the root of the whole tree. The SceneManager will add
+and remove scenes from Main. The root script of main should only load the game and change to the main menu. Every system
+that should be available in the whole project independently of what scene is playing should be on the main scene.
+Examples are:
+	- SaveManager: saves and loads the game
+	- MusicManager: plays music depending on what's needed. It should be in main as to be able to play music without
+	interruptions when changing scenes.
+	- Preloading: renders all lights and shaders on the start of the game to avoid sutters in the future when using
+	compatibility.
+	- PlatformConfig: configures project depending on where it is played. Useful to set fullscreen when export is for
+	desktop to avoid changing it for every export.
+	- DebugNode: shows a debug label and performance stats like fps.
+	-CHECK: SceneManager: if not used as an autoload
+	- AchievementManager: tracks information relevant to achievements and emits them.
+	- AdManager and GamestartManager: play ads and gamestart events.
+All this systems should communicate with things outside Main by signals in the SignalToMain autoload. Ex: player kills
+enemy and emmits SignalToMain.enemy_killed. AchievementManager connects to the signal and increments a counter to track
+total kills. Only scripts on Main should connect to signals in SignalToMain.
+
+- Main or Autoload?: They will both run throughout the whole game. The difference between them is that scripts in main
+cannot be accesed by other scenes. To decide where to put the script, answer this questions:
+	- Are the scipt's variables or functions required to be accesed by other scenes? then Autoload.
+	- Are the script's variables NOT required to be accesed by other scenes, and the functions required are specifically
+	'void' thus don't return anything? then instead of the outer secne calling these functions, emit a signal from
+	SignalToMain. Then add the script to Main and connect it to that signal. Ex: incrementing a counter.
+	- Is no outside access required but the script has to run the whole time? then add to Main.
+	- Is no outside access required and it should only run on specific scenes? then add to that specific scene, no
+	global state needed.
+Ex: a script that decides difficulty based on which platform the game is running should be an autoload, since the 
+difficulty variable has to be accessed by the level scene. A script that defines display settings depending on 
+platform should be on Main, since no other scripts must access that information.
+
+- Diorama: a scene with every scene of the project added as children. Used only to quickly access scenes and avoid
+having to type into the file manager. Should be frequently updated to be of good use. Sub-nodes should be arranged
+by type and context. Should be always on an open tab.
+
+- Button sounds: while Godot's theme allows to globally change UI settings, sounds are not contemplated. Adding hover
+and press sound to a button must be individually done to each. To avoid this, create a custom button with a SoundManager
+and use that one everytime a button is needed.
 
 
+···TODO: scene manager: global or on main??????
 
 
 
 - SPAWNING:
 When spawning an object that has to be attached to another node, use owner.add_child() instead of
-getting a reference to the root of the scene. whis way the script can still extend Node
+getting a reference to the root of the scene. this way the script can still extend Node
 
 
 
