@@ -14,23 +14,23 @@ which in response will call functions on their respective manager. Ex: TODO
 
 - Root script: The root node of the scene should not have logic. No _ready, _process or signal reactions. It should have
 public variables and functions that are expected from it. This public functions should be wrappers that call
-a function in another subnode's script. All the logic regarding the level should be on a Handler (LevelHandler), 
-which controls, pause, functions that decide to end the level, etc. The Level root node can be Interpretated as a
-Manager, only that the handler will go under it in the scene-tree insted of on top. If the rootnode is anything
-other than a plain Node, Node2D or Node3D, like a rigid or characterbody, it should still have no logic. The movement
-must be done in a MovementManager with an exportedrigidbody variable.
+a function in another subnode's script, unless they are extremely simple. All the logic regarding the level should be on
+a Handler (LevelHandler), which controls, pause, functions that decide to end the level, etc. The Level root node can be
+Interpretated as aManager, only that the handler will go under it in the scene-tree insted of on top. If the rootnode is
+anything other than a plain Node, Node2D or Node3D, like a rigid or characterbody, it should still have no logic. The 
+movement must be done in a MovementManager with an exported rigidbody variable.
 
 - Autoloads: use a Node scene if @export are needed, else autoload a script. they should be used as sparsely as possible.
 A reference should always be passed instead of saving it on a global variable. Some exceptions apply:
 	- Utilities: project-agnostic functions. They should be on every project. I prefer to use static instead of autoload.
-	- Scenes: saving all scenes in an array to be used by the scene manager
+	- Scenes: saving all scenes in an array to be used by the scene manager.
 	- TempSave: for temporary saving, only stored for the game session. Used to, for example, save last position of 
 	a UI character selector, or to save the fact that the player has moved and thus hide the tutorial buttons.
-	- SignalToMain: global signals that inform the main scene to react. Only scripts on Main scene should react to
-	these signals. Ex: signals about: changing scenes, saving achievements info, playing ads, informing about game start
+	- SignalToMain: global signals that inform the main scene to react. Ex: signals about: changing scenes, saving achievements info, playing ads, informing about game start
 	and stop events.
 	-BuildConfig: variables setting the difficulty, settings, etc. that correspond to the version. Useful to have
 	different settings for pc, android, web, etc, that have to be accessed by other scenes.
+	- External SDKs.
 If some logic should be always present independently of which scene is playing, like a save system, or only present at
 the start of the game but doesnt need to be inside any particular scene, like a game setting configurator, use a plain
 node in Main, instead of an autoload. See below:
@@ -43,9 +43,9 @@ Examples are:
 	- MusicManager: plays music depending on what's needed. It should be in main as to be able to play music without
 	interruptions when changing scenes.
 	- Preloading: renders all lights and shaders on the start of the game to avoid sutters in the future when using
-	compatibility.
+	compatibility renderer.
 	- PlatformConfig: configures project depending on where it is played. Useful to set fullscreen when export is for
-	desktop to avoid changing it for every export.
+	desktop to avoid changing it on every export.
 	- DebugNode: shows a debug label and performance stats like fps.
 	-CHECK: SceneManager: if not used as an autoload
 	- AchievementManager: tracks information relevant to achievements and emits them.
@@ -54,12 +54,15 @@ All this systems should communicate with things outside Main by signals in the S
 enemy and emmits SignalToMain.enemy_killed. AchievementManager connects to the signal and increments a counter to track
 total kills. Only scripts on Main should connect to signals in SignalToMain.
 
+- Static or Autoload? I prefer static to avoid clutter but it's only possible when no script's functions
+need access to the SceneTree. Possible in utility functions but impossible on a SceneManager.
+
 - Main or Autoload?: They will both run throughout the whole game. The difference between them is that scripts in main
 cannot be accesed by other scenes. To decide where to put the script, answer this questions:
 	- Are the scipt's variables or functions required to be accesed by other scenes? then Autoload.
 	- Are the script's variables NOT required to be accesed by other scenes, and the functions required are specifically
-	'void' thus don't return anything? then instead of the outer secne calling these functions, emit a signal from
-	SignalToMain. Then add the script to Main and connect it to that signal. Ex: incrementing a counter.
+	'void' thus don't return anything? then instead of the outer scene calling these functions, emit a signal from
+	SignalToMain. Then add the script to Main and connect it to that signal. Ex: incrementing a counter for an achievement.
 	- Is no outside access required but the script has to run the whole time? then add to Main.
 	- Is no outside access required and it should only run on specific scenes? then add to that specific scene, no
 	global state needed.
@@ -76,7 +79,7 @@ and press sound to a button must be individually done to each. To avoid this, cr
 and use that one everytime a button is needed.
 
 
-···TODO: scene manager: global or on main??????
+···TODO: scene manager: why global and not in main????
 
 
 

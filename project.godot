@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://ca1un4wx615y2"
 
 Scenes="*uid://btdxfw2ejjx0y"
 SceneManager="*uid://62o6dv76a3de"
+SignalBus="*uid://b5igvcfemlbnm"
 
 [display]
 
