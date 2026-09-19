@@ -14,31 +14,31 @@ func _ready() -> void:
 		_save_path = "user://save_game.tres"
 
 
-func save_game():
+func save_game() -> void:
 	save_game_static()
 	save_game_dynamic()
 
 
-func save_game_static():
+func save_game_static() -> void:
 	var game_save: GameSave = GameSave.new()
 	specific_static_save.save_static(game_save)
 	ResourceSaver.save(game_save, _save_path)
 
 
-func save_game_dynamic():
+func save_game_dynamic() -> void:
 	pass
 
 
-func load_game():
+func load_game() -> void:
 	load_game_static()
 	load_game_dynamic()
 
 
-func load_game_static():
+func load_game_static() -> void:
 	if ResourceLoader.exists(_save_path):
 		var game_save: GameSave = ResourceLoader.load(_save_path)
 		specific_static_save.load_static(game_save)
 
 
-func load_game_dynamic():
+func load_game_dynamic() -> void:
 	pass

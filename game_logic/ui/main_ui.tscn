@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://x11muvl3x6vi"]
+
+[ext_resource type="Script" uid="uid://d0jw4u3hgsmgd" path="res://game_logic/ui/main_ui.gd" id="1_qr26y"]
+[ext_resource type="Texture2D" uid="uid://bjoapf7om3oif" path="res://assets/icon.svg" id="2_dpmi0"]
+[ext_resource type="PackedScene" uid="uid://cfupml0vgjpdg" path="res://game_logic/ui/pause_menu.tscn" id="3_u7gx0"]
+[ext_resource type="PackedScene" uid="uid://cicd5yg57nyuh" path="res://game_logic/ui/game_over_menu.tscn" id="4_afxui"]
+
+[node name="MainUI" type="CanvasLayer" unique_id=97663169 node_paths=PackedStringArray("pause_button", "_pause_menu", "_game_over_menu")]
+script = ExtResource("1_qr26y")
+pause_button = NodePath("MarginContainer/PauseButton")
+_pause_menu = NodePath("MarginContainer/PauseMenu")
+_game_over_menu = NodePath("MarginContainer/GameOverMenu")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1431965106]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="PauseButton" type="Button" parent="MarginContainer" unique_id=1117867542]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("2_dpmi0")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PauseMenu" parent="MarginContainer" unique_id=733302398 instance=ExtResource("3_u7gx0")]
+visible = false
+layout_mode = 2
+
+[node name="GameOverMenu" parent="MarginContainer" unique_id=1942799696 instance=ExtResource("4_afxui")]
+visible = false
+layout_mode = 2

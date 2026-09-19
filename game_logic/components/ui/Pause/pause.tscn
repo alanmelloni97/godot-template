@@ -24,7 +24,6 @@ text = "PAUSE"
 
 [node name="PauseMenu" type="VBoxContainer" parent="." unique_id=1147475473]
 process_mode = 2
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

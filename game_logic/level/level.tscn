@@ -1,30 +1,27 @@
 [gd_scene format=3 uid="uid://deknwytbin24p"]
 
-[ext_resource type="Texture2D" uid="uid://bjoapf7om3oif" path="res://assets/icon.svg" id="1_hnbtc"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vt5cs"]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5ud5j"]
-radius = 40.1995
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5ud5j"]
+[ext_resource type="Script" uid="uid://dhhum51g1vdok" path="res://game_logic/level/level.gd" id="1_3qttp"]
+[ext_resource type="Script" uid="uid://odusx8chp1sd" path="res://game_logic/level/levelhandler.gd" id="2_7i0e5"]
+[ext_resource type="Script" uid="uid://cqatq7xtgn827" path="res://game_logic/level/_debug_shortcuts.gd" id="2_y6m4d"]
+[ext_resource type="PackedScene" uid="uid://x11muvl3x6vi" path="res://game_logic/ui/main_ui.tscn" id="4_7i0e5"]
+[ext_resource type="Script" uid="uid://crjluma6fcd67" path="res://game_logic/level/ui_handler.gd" id="5_guxw8"]
 
 [node name="Level" type="Node2D" unique_id=2030396584]
+script = ExtResource("1_3qttp")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1040773942]
-position = Vector2(905, 363)
-physics_material_override = SubResource("PhysicsMaterial_vt5cs")
+[node name="Levelhandler" type="Node" parent="." unique_id=67151317]
+script = ExtResource("2_7i0e5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=508923659]
-shape = SubResource("CircleShape2D_5ud5j")
+[node name="Background" type="Sprite2D" parent="." unique_id=281130722]
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1718983977]
-texture = ExtResource("1_hnbtc")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1740389818]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875376126]
+[node name="_debug_shortcuts" type="Node" parent="." unique_id=615314176]
+script = ExtResource("2_y6m4d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=907652173]
-position = Vector2(830, 1010)
-shape = SubResource("WorldBoundaryShape2D_5ud5j")
+[node name="MainUI" parent="." unique_id=97663169 instance=ExtResource("4_7i0e5")]
+
+[node name="UIHandler" type="Node" parent="MainUI" unique_id=1498775669 node_paths=PackedStringArray("_level", "_main_ui")]
+script = ExtResource("5_guxw8")
+_level = NodePath("../..")
+_main_ui = NodePath("..")

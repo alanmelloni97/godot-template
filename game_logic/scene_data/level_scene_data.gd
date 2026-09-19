@@ -1,0 +1,2 @@
+extends SceneData
+class_name LevelSceneData

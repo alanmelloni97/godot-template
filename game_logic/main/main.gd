@@ -5,13 +5,14 @@ extends Node
 @export var save_system: SaveSystem
 @export var music_manager: MusicManager
 @export var preloading: Node
+@export var scene_manager: SceneManager
 
 
 func _ready() -> void:
 	main()
-	
 
-func main():
+
+func main() -> void:
 	# Start game
 	save_system.load_game()
-	SceneManager.change_to_scene(Scenes.main_menu)
+	scene_manager.change_to_scene(Scenes.main_menu)

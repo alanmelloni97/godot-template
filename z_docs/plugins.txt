@@ -1,9 +1,9 @@
 GDscript Formatter
 todo manager
-minimize web build?
 
 SDKS:
 	Admob (Poingstudios)
 	Inapp review
 	godotsteam
 	poki/crazygames
+	minimizewebbuild -- sirve para crazygames que no permite .zip

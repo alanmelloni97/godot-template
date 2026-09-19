@@ -3,9 +3,9 @@ extends Node
 
 
 # Static data specific to the game
-func save_static(game_save: GameSave):
+func save_static(_game_save: GameSave) -> void:
 	pass
 
 
-func load_static(game_save: GameSave):
+func load_static(_game_save: GameSave) -> void:
 	pass

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cicd5yg57nyuh"]
+
+[ext_resource type="Script" uid="uid://cmlx36a6r8b2j" path="res://game_logic/ui/game_ended_menu.gd" id="1_wvg1o"]
+[ext_resource type="Script" uid="uid://chu6i58wycf7u" path="res://game_logic/ui/show_animation.gd" id="2_0bkx5"]
+
+[node name="GameOverMenu" type="PanelContainer" unique_id=126134748 node_paths=PackedStringArray("show_animation", "_retry_button", "_main_menu_button")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -46.5
+offset_right = 52.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_wvg1o")
+show_animation = NodePath("ScaleAnimation")
+_retry_button = NodePath("VBoxContainer/HBoxContainer/RetryButton")
+_main_menu_button = NodePath("VBoxContainer/HBoxContainer/MainMenuButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1906525608]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameOverMessage" type="Label" parent="VBoxContainer" unique_id=1789818643]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1925422044]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RetryButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=57261278]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RESTART"
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=212531865]
+layout_mode = 2
+text = "MAIN MENU"
+
+[node name="ScaleAnimation" type="Node" parent="." unique_id=2016819591 node_paths=PackedStringArray("obj")]
+script = ExtResource("2_0bkx5")
+obj = NodePath("..")
+t_anim = 0.3
