@@ -7,6 +7,8 @@ var interstitial_ad_id_debug: String = "ca-app-pub-3940256099942544/1033173712"
 var rewarded_ad_id_debug: String = "ca-app-pub-3940256099942544/5224354917"
 var interstitial_ad: InterstitialAd
 var interstitial_loader: InterstitialAdLoader = InterstitialAdLoader.new()
+var rewarded_ad: RewardedAd
+var rewarded_loader: RewardedAdLoader = RewardedAdLoader.new()
 
 
 func start() -> void:
@@ -74,17 +76,13 @@ func _show_interstitial() -> void:
 		MainSignals.interstitial_ended.emit(false)
 
 
-var rewarded_ad: RewardedAd
-var rewarded_loader: RewardedAdLoader = RewardedAdLoader.new()
-
-
 func _load_rewarded_ad() -> void:
 	# set ad id
 	var ad_unit_id: String
 	if OS.is_debug_build():
-		ad_unit_id = interstitial_ad_id_debug
+		ad_unit_id = rewarded_ad_id_debug
 	else:
-		ad_unit_id = interstitial_ad_id_prod
+		ad_unit_id = rewarded_ad_id_prod
 	var callback: RewardedAdLoadCallback = RewardedAdLoadCallback.new()
 
 	callback.on_ad_loaded = func(ad: RewardedAd) -> void:
