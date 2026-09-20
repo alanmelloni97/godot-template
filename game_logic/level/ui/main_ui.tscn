@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://x11muvl3x6vi"]
 
-[ext_resource type="Script" uid="uid://d0jw4u3hgsmgd" path="res://game_logic/ui/main_ui.gd" id="1_qr26y"]
+[ext_resource type="Script" uid="uid://d0jw4u3hgsmgd" path="res://game_logic/level/ui/main_ui.gd" id="1_qr26y"]
 [ext_resource type="Texture2D" uid="uid://bjoapf7om3oif" path="res://assets/icon.svg" id="2_dpmi0"]
-[ext_resource type="PackedScene" uid="uid://cfupml0vgjpdg" path="res://game_logic/ui/pause_menu.tscn" id="3_u7gx0"]
-[ext_resource type="PackedScene" uid="uid://cicd5yg57nyuh" path="res://game_logic/ui/game_over_menu.tscn" id="4_afxui"]
+[ext_resource type="PackedScene" uid="uid://cfupml0vgjpdg" path="res://game_logic/level/ui/pause_menu.tscn" id="3_u7gx0"]
+[ext_resource type="PackedScene" uid="uid://cicd5yg57nyuh" path="res://game_logic/level/ui/game_over_menu.tscn" id="4_afxui"]
 
 [node name="MainUI" type="CanvasLayer" unique_id=97663169 node_paths=PackedStringArray("pause_button", "_pause_menu", "_game_over_menu")]
 script = ExtResource("1_qr26y")

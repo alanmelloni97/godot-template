@@ -2,12 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://sbrakpuoo3rd"
-valid=false
+uid="uid://ojqgt2hcmgi6"
+path="res://.godot/imported/NotoSans-Regular.ttf-28d2cd03f12d83e4c397ac9b603d7ce7.fontdata"
 
 [deps]
 
-source_file="res://addons/admob/assets/fonts/NotoSansSC-Regular.otf"
+source_file="res://addons/project-time-tracker/NotoSans-Regular.ttf"
+dest_files=["res://.godot/imported/NotoSans-Regular.ttf-28d2cd03f12d83e4c397ac9b603d7ce7.fontdata"]
 
 [params]
 
@@ -21,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
-hinting=3
+hinting=1
 subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0

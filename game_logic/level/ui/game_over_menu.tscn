@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cicd5yg57nyuh"]
 
-[ext_resource type="Script" uid="uid://cmlx36a6r8b2j" path="res://game_logic/ui/game_ended_menu.gd" id="1_wvg1o"]
-[ext_resource type="Script" uid="uid://chu6i58wycf7u" path="res://game_logic/ui/show_animation.gd" id="2_0bkx5"]
+[ext_resource type="Script" uid="uid://cmlx36a6r8b2j" path="res://game_logic/level/ui/game_ended_menu.gd" id="1_wvg1o"]
+[ext_resource type="Script" uid="uid://chu6i58wycf7u" path="res://game_logic/level/ui/show_animation.gd" id="2_0bkx5"]
 
 [node name="GameOverMenu" type="PanelContainer" unique_id=126134748 node_paths=PackedStringArray("show_animation", "_retry_button", "_main_menu_button")]
 anchors_preset = 8

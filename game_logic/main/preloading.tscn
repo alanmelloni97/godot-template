@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bvo06k07h5pvx"]
 
 [ext_resource type="Script" uid="uid://dsxqhy2yc5ld3" path="res://game_logic/main/preloading.gd" id="1_o6vmr"]
-[ext_resource type="PackedScene" uid="uid://dmqyassdndgtm" path="res://game_logic/Ball/ball.tscn" id="2_4l6ej"]
+[ext_resource type="PackedScene" path="res://game_logic/Ball/ball.tscn" id="2_4l6ej"]
 
 [node name="Preloading" type="Node" unique_id=731860452 node_paths=PackedStringArray("ball")]
 script = ExtResource("1_o6vmr")

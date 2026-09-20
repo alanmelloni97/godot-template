@@ -3,12 +3,11 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://f3f176vu6pfo"
-path="res://.godot/imported/music.ogg-6849ed60109f01916f243ace862e95fb.oggvorbisstr"
+valid=false
 
 [deps]
 
 source_file="res://addons/admob/assets/music.ogg"
-dest_files=["res://.godot/imported/music.ogg-6849ed60109f01916f243ace862e95fb.oggvorbisstr"]
 
 [params]
 

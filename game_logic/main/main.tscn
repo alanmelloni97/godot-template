@@ -1,41 +1,41 @@
 [gd_scene format=3 uid="uid://0tguoaxhermy"]
 
-[ext_resource type="Script" uid="uid://8510d5gyhgcw" path="res://game_logic/main/main.gd" id="1_yh5la"]
-[ext_resource type="Script" uid="uid://62o6dv76a3de" path="res://game_logic/main/scene_manager.gd" id="2_krguk"]
-[ext_resource type="Script" uid="uid://bnn0q1nj0r7ip" path="res://game_logic/main/save_system/save_system.gd" id="2_qvhan"]
-[ext_resource type="Script" uid="uid://ci0bfno7m6u7h" path="res://game_logic/main/save_system/specific_static_save.gd" id="3_6jl4q"]
-[ext_resource type="Script" uid="uid://b0dvddvx114dr" path="res://game_logic/main/music_manager.gd" id="6_4dugh"]
-[ext_resource type="Script" uid="uid://bdwho74cieura" path="res://game_logic/main/achievements_manager.gd" id="7_phvla"]
-[ext_resource type="Script" uid="uid://dsxqhy2yc5ld3" path="res://game_logic/main/preloading.gd" id="8_bsumw"]
-[ext_resource type="Script" uid="uid://cf0ht2kcst86m" path="res://game_logic/main/sdks/ads_admob.gd" id="8_ntpxs"]
-[ext_resource type="Script" uid="uid://wik0lqpnu2iw" path="res://game_logic/main/sdks/external_sdks.gd" id="8_rrgxr"]
-[ext_resource type="Script" uid="uid://ewm4wfxtdt0x" path="res://game_logic/main/achievements_tracker.gd" id="8_yyosa"]
-[ext_resource type="Script" uid="uid://d3ddtgq87jpug" path="res://game_logic/main/platform_config.gd" id="9_phvla"]
-[ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://game_logic/external_code/debug_menu/debug_menu.tscn" id="10_0i4oc"]
-[ext_resource type="Script" uid="uid://tl1toomrpjvf" path="res://game_logic/main/sdks/steam_achievements.gd" id="10_rrgxr"]
-[ext_resource type="Script" uid="uid://cn3qv486giv3t" path="res://game_logic/main/debug_version_warning.gd" id="10_yyosa"]
-[ext_resource type="Script" uid="uid://cknx5gb864keg" path="res://game_logic/main/sdks/steam_initializer.gd" id="11_6jl4q"]
+[ext_resource type="Script" uid="uid://8510d5gyhgcw" path="res://game_logic/main/main.gd" id="1_5xyti"]
+[ext_resource type="Script" uid="uid://62o6dv76a3de" path="res://game_logic/main/scene_manager.gd" id="2_n3o0a"]
+[ext_resource type="Script" uid="uid://bnn0q1nj0r7ip" path="res://game_logic/main/save_system/save_system.gd" id="3_s758e"]
+[ext_resource type="Script" uid="uid://ci0bfno7m6u7h" path="res://game_logic/main/save_system/specific_static_save.gd" id="4_4hmqs"]
+[ext_resource type="Script" uid="uid://b0dvddvx114dr" path="res://game_logic/main/music_manager.gd" id="5_piupu"]
+[ext_resource type="Script" uid="uid://dsxqhy2yc5ld3" path="res://game_logic/main/preloading.gd" id="6_q0sk7"]
+[ext_resource type="Script" uid="uid://d3ddtgq87jpug" path="res://game_logic/main/platform_config.gd" id="7_vapsy"]
+[ext_resource type="Script" uid="uid://bdwho74cieura" path="res://game_logic/main/achievements_manager.gd" id="8_jofbb"]
+[ext_resource type="Script" uid="uid://ewm4wfxtdt0x" path="res://game_logic/main/achievements_tracker.gd" id="9_re7it"]
+[ext_resource type="Script" uid="uid://wik0lqpnu2iw" path="res://game_logic/main/sdks/external_sdks.gd" id="10_oagth"]
+[ext_resource type="Script" uid="uid://cf0ht2kcst86m" path="res://game_logic/main/sdks/ads_admob.gd" id="11_n53tw"]
+[ext_resource type="Script" uid="uid://tl1toomrpjvf" path="res://game_logic/main/sdks/steam_achievements.gd" id="12_d00gp"]
+[ext_resource type="Script" uid="uid://cknx5gb864keg" path="res://game_logic/main/sdks/steam_initializer.gd" id="13_d8vpj"]
+[ext_resource type="Script" uid="uid://cn3qv486giv3t" path="res://game_logic/main/debug_version_warning.gd" id="14_qs5eo"]
+[ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://game_logic/external_code/debug_menu/debug_menu.tscn" id="15_frbr6"]
 
 [node name="Main" type="Node" unique_id=1384278331 node_paths=PackedStringArray("save_system", "music_manager", "preloading", "scene_manager")]
-script = ExtResource("1_yh5la")
+script = ExtResource("1_5xyti")
 save_system = NodePath("SaveSystem")
 music_manager = NodePath("MusicManager")
 preloading = NodePath("Preloading")
 scene_manager = NodePath("SceneManager")
 
 [node name="SceneManager" type="Node" parent="." unique_id=1051287677]
-script = ExtResource("2_krguk")
+script = ExtResource("2_n3o0a")
 
 [node name="SaveSystem" type="Node" parent="." unique_id=980112996 node_paths=PackedStringArray("specific_static_save")]
-script = ExtResource("2_qvhan")
+script = ExtResource("3_s758e")
 specific_static_save = NodePath("SpecificStaticSave")
 
 [node name="SpecificStaticSave" type="Node" parent="SaveSystem" unique_id=41538082]
-script = ExtResource("3_6jl4q")
+script = ExtResource("4_4hmqs")
 
 [node name="MusicManager" type="Node" parent="." unique_id=124095115 node_paths=PackedStringArray("audio_stream_player")]
 process_mode = 3
-script = ExtResource("6_4dugh")
+script = ExtResource("5_piupu")
 audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager" unique_id=1866995240]
@@ -43,39 +43,39 @@ autoplay = true
 bus = &"Music"
 
 [node name="Preloading" type="Node" parent="." unique_id=731860452]
-script = ExtResource("8_bsumw")
+script = ExtResource("6_q0sk7")
 
 [node name="PlatformConfig" type="Node" parent="." unique_id=1742208959]
-script = ExtResource("9_phvla")
+script = ExtResource("7_vapsy")
 desktop_fullscreen = true
 mobile_fullscreen = true
 
 [node name="AchievementsManager" type="Node" parent="." unique_id=94434432]
-script = ExtResource("7_phvla")
+script = ExtResource("8_jofbb")
 
 [node name="AchievementsTracker" type="Node" parent="AchievementsManager" unique_id=960442055]
-script = ExtResource("8_yyosa")
+script = ExtResource("9_re7it")
 
 [node name="ExternalSDKs" type="Node" parent="." unique_id=546690980 node_paths=PackedStringArray("steam_achievements", "steam_initializer", "ads_admob")]
-script = ExtResource("8_rrgxr")
+script = ExtResource("10_oagth")
 steam_achievements = NodePath("SteamAchievements")
 steam_initializer = NodePath("SteamInitializer")
 ads_admob = NodePath("AdsAdmob")
 
 [node name="AdsAdmob" type="Node" parent="ExternalSDKs" unique_id=304866079]
-script = ExtResource("8_ntpxs")
+script = ExtResource("11_n53tw")
 
 [node name="SteamAchievements" type="Node" parent="ExternalSDKs" unique_id=1456453383 node_paths=PackedStringArray("ach_man")]
-script = ExtResource("10_rrgxr")
+script = ExtResource("12_d00gp")
 ach_man = NodePath("../../AchievementsManager")
 
 [node name="SteamInitializer" type="Node" parent="ExternalSDKs" unique_id=1643188263]
-script = ExtResource("11_6jl4q")
+script = ExtResource("13_d8vpj")
 
 [node name="Debug" type="Node" parent="." unique_id=1501643212]
-script = ExtResource("10_yyosa")
+script = ExtResource("14_qs5eo")
 
-[node name="PerformanceStats" parent="Debug" unique_id=790871561 instance=ExtResource("10_0i4oc")]
+[node name="PerformanceStats" parent="Debug" unique_id=790871561 instance=ExtResource("15_frbr6")]
 
 [node name="DebugLabel" type="Label" parent="Debug/PerformanceStats" unique_id=746129032]
 modulate = Color(0.92493343, 0, 0.23296982, 1)
