@@ -10,10 +10,6 @@ var current_scene: Node:
 		get_tree().current_scene = x
 
 
-func _ready() -> void:
-	MainSignals.scene_change_requested.connect(change_to_scene)
-
-
 func change_to_scene(scene: PackedScene, scene_data: SceneData = null) -> void:
 	aux_scene_data = scene_data
 	var inst: Node = _instantiate_scene(scene)

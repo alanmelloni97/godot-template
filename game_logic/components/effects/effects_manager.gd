@@ -7,7 +7,7 @@ extends Node
 var current_effects: Array[Effect] # _remove_current_effect_if_duplicate() prevents having two of the same effect type
 
 
-func add_effect(effect: Effect):
+func add_effect(effect: Effect) -> void:
 	if not _stackable_effects:
 		_remove_current_effect_if_duplicate(effect)
 	effect.apply_effect(_affected_node)
@@ -15,14 +15,14 @@ func add_effect(effect: Effect):
 	current_effects.append(effect)
 
 
-func _on_timer_timeout(effect: Effect):
+func _on_timer_timeout(effect: Effect) -> void:
 	# check if effect is active, if not, a removed effect will trigger timer
 	if effect in current_effects:
 		effect.remove_effect(_affected_node)
 		current_effects.erase(effect)
 
 
-func _remove_current_effect_if_duplicate(effect: Effect):
+func _remove_current_effect_if_duplicate(effect: Effect) -> void:
 	# if there is an active effect of the same type, remove it
 	for current_effect in current_effects:
 		if current_effect.get_script() == effect.get_script():

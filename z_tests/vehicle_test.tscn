@@ -1,0 +1,58 @@
+[gd_scene format=4 uid="uid://b20qttd7m3aft"]
+
+[ext_resource type="PackedScene" uid="uid://d3e46twcei605" path="res://game_logic/vehicle/vehicle.tscn" id="1_c4tmc"]
+[ext_resource type="Script" uid="uid://cs6mnc0bix7a5" path="res://game_logic/level/mouse_painter/mouse_painter.gd" id="2_mnmf5"]
+[ext_resource type="TileSet" uid="uid://dkn74ngut3ox6" path="res://godot_files/tile_set.tres" id="2_nmvok"]
+[ext_resource type="PackedScene" uid="uid://cirt2ex1q75e2" path="res://game_logic/level/mouse_painter/segment.tscn" id="3_s7ew5"]
+[ext_resource type="Script" uid="uid://bfw2xskpytgek" path="res://components/mouse_follower/mouse_follower.gd" id="4_8frsd"]
+[ext_resource type="PackedScene" uid="uid://h4hvb7ob1psf" path="res://game_logic/level/mouse_painter/bouncy_segment.tscn" id="6_jx2y8"]
+[ext_resource type="PackedScene" uid="uid://dojvu3cth5lfr" path="res://game_logic/level/obstacles/trampoline.tscn" id="7_qe4oy"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b7sxp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnuf1"]
+radius = 2.0
+
+[node name="VehicleTest" type="Node2D" unique_id=522924264]
+
+[node name="Vehicle" parent="." unique_id=1312619414 instance=ExtResource("1_c4tmc")]
+position = Vector2(296, 719)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1909757158]
+position = Vector2(9, 367)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1953554360]
+position = Vector2(881, 713)
+shape = SubResource("WorldBoundaryShape2D_b7sxp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=590904551]
+position = Vector2(888, 652)
+zoom = Vector2(0.965, 0.965)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1250407900]
+tile_map_data = PackedByteArray("AAAAABAAAgAEAAIAAAABABAAAgABAAMAAAADABAAAgABAAMAAAACABAAAgABAAMAAAAEABAAAgABAAMAAAAFABAAAgABAAMAAAAGABAAAgABAAMAAAAHABAAAgABAAMAAAAIABAAAgABAAMAAAAJABAAAgABAAMAAAAKABAAAgABAAMAAAALABAAAgABAAMAAAAMABAAAgABAAMAAAANABAAAgABAAMAAAAOABAAAgABAAMAAAAPABAAAgABAAMAAAAQABAAAgABAAMAAAARABAAAgABAAMAAAASABAAAgABAAMAAAATABAAAgABAAMAAAAUABAAAgABAAMAAAAVABAAAgABAAMAAAAWABAAAgABAAMAAAAbABAAAgABAAMAAAAcABAAAgABAAMAAAAdABAAAgAGAAIAAAAaABAAAgABAAMAAAAZABAAAgABAAMAAAAYABAAAgABAAMAAAAXABAAAgABAAMAAAAdAAAAAgAGAAAAAAAdAAEAAgADAAEAAAAdAAIAAgADAAEAAAAdAAMAAgADAAEAAAAdAAQAAgADAAEAAAAdAAUAAgADAAEAAAAdAAYAAgADAAEAAAAdAAcAAgADAAEAAAAdAAgAAgADAAEAAAAdAAkAAgADAAEAAAAdAAoAAgADAAEAAAAdAAsAAgADAAEAAAAdAAwAAgADAAEAAAAdAA0AAgADAAEAAAAdAA4AAgADAAEAAAAdAA8AAgADAAEAAAAAAAAAAgAEAAAAAAABAAAAAgABAAMAAAACAAAAAgABAAMAAAADAAAAAgABAAMAAAAEAAAAAgABAAMAAAAFAAAAAgABAAMAAAAGAAAAAgABAAMAAAAHAAAAAgABAAMAAAAIAAAAAgABAAMAAAAJAAAAAgABAAMAAAAKAAAAAgABAAMAAAALAAAAAgABAAMAAAAMAAAAAgABAAMAAAANAAAAAgABAAMAAAAOAAAAAgABAAMAAAAPAAAAAgABAAMAAAAQAAAAAgABAAMAAAARAAAAAgABAAMAAAASAAAAAgABAAMAAAATAAAAAgABAAMAAAAUAAAAAgABAAMAAAAVAAAAAgABAAMAAAAWAAAAAgABAAMAAAAXAAAAAgABAAMAAAAYAAAAAgABAAMAAAAZAAAAAgABAAMAAAAaAAAAAgABAAMAAAAbAAAAAgABAAMAAAAcAAAAAgABAAMAAAAAAA8AAgADAAEAAAAAAA4AAgADAAEAAAAAAA0AAgADAAEAAAAAAAwAAgADAAEAAAAAAAsAAgADAAEAAAAAAAoAAgADAAEAAAAAAAkAAgADAAEAAAAAAAgAAgADAAEAAAAAAAcAAgADAAEAAAAAAAYAAgADAAEAAAAAAAUAAgADAAEAAAAAAAQAAgADAAEAAAAAAAMAAgADAAEAAAAAAAIAAgADAAEAAAAAAAEAAgADAAEAAAAFAAwAAgACAAMAAAAEAAwAAgABAAMAAAADAAwAAgAAAAMAAAA=")
+tile_set = ExtResource("2_nmvok")
+
+[node name="PaintManager" type="Node" parent="." unique_id=838856765 node_paths=PackedStringArray("map", "mouse_pointer")]
+script = ExtResource("2_mnmf5")
+map = NodePath("..")
+segment = ExtResource("3_s7ew5")
+bouncy_segment = ExtResource("6_jx2y8")
+mouse_pointer = NodePath("PaintBrush")
+
+[node name="PaintBrush" type="Area2D" parent="PaintManager" unique_id=310618127 node_paths=PackedStringArray("object")]
+collision_layer = 0
+collision_mask = 21
+script = ExtResource("4_8frsd")
+object = NodePath(".")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaintManager/PaintBrush" unique_id=700904910]
+shape = SubResource("CircleShape2D_qnuf1")
+
+[node name="Trampoline" parent="." unique_id=1984566604 instance=ExtResource("7_qe4oy")]
+position = Vector2(417, 790)
+
+[node name="Trampoline" parent="Trampoline" index="2" unique_id=1398627630]
+position = Vector2(0, -10.645142)
+
+[editable path="Trampoline"]

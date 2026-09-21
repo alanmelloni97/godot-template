@@ -1,6 +1,8 @@
 class_name MouseFollowerComponent
 extends Node
 
+# Make object follow mouse pointer
+
 @export var object: Node2D
 
 var offset: Vector2

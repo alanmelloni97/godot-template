@@ -1,6 +1,8 @@
 class_name GridifierComponent
 extends Node
 
+# Conscripts movement of node2D to a grid
+
 signal grid_position_changed
 
 @export var _node: Node2D

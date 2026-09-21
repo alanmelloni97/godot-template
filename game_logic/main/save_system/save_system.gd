@@ -8,7 +8,6 @@ var _save_path: NodePath
 
 
 func _ready() -> void:
-	MainSignals.save_game_requested.connect(save_game)
 	if OS.is_debug_build(): # If running on editor or debug build
 		_save_path = "res://main/save_system/save_game.tres"
 	else: # if release build
