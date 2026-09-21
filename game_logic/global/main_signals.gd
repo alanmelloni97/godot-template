@@ -8,6 +8,9 @@ extends Node
 # Scene management
 signal scene_change_requested(scene: PackedScene, scene_data: SceneData)
 
+# Save game
+signal save_game_requested
+
 # Game Events
 signal gameplay_started
 signal gameplay_stopped

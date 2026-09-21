@@ -51,6 +51,23 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/admob/plugin.cfg", "res://addons/godotsteam/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "green",
+"res://builds/": "yellow",
+"res://game_logic/": "red",
+"res://game_logic/components/": "pink",
+"res://game_logic/external_code/": "pink",
+"res://game_logic/global/": "pink",
+"res://game_logic/level/": "red",
+"res://game_logic/main/": "pink",
+"res://game_logic/menus/": "purple",
+"res://godot_files/": "gray",
+"res://z_docs/": "gray"
+}
+
 [gui]
 
 theme/custom="uid://c0x6nj3iyepqs"

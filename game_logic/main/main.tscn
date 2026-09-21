@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0tguoaxhermy"]
 
 [ext_resource type="Script" uid="uid://8510d5gyhgcw" path="res://game_logic/main/main.gd" id="1_5xyti"]
+[ext_resource type="Script" uid="uid://2v6oif5gncuf" path="res://game_logic/main/main_signals_handler.gd" id="2_k05wu"]
 [ext_resource type="Script" uid="uid://62o6dv76a3de" path="res://game_logic/main/scene_manager.gd" id="2_n3o0a"]
 [ext_resource type="Script" uid="uid://bnn0q1nj0r7ip" path="res://game_logic/main/save_system/save_system.gd" id="3_s758e"]
 [ext_resource type="Script" uid="uid://ci0bfno7m6u7h" path="res://game_logic/main/save_system/specific_static_save.gd" id="4_4hmqs"]
@@ -22,6 +23,11 @@ save_system = NodePath("SaveSystem")
 music_manager = NodePath("MusicManager")
 preloading = NodePath("Preloading")
 scene_manager = NodePath("SceneManager")
+
+[node name="MainSignalsHandler" type="Node" parent="." unique_id=443968554 node_paths=PackedStringArray("save_system", "scene_manager")]
+script = ExtResource("2_k05wu")
+save_system = NodePath("../SaveSystem")
+scene_manager = NodePath("../SceneManager")
 
 [node name="SceneManager" type="Node" parent="." unique_id=1051287677]
 script = ExtResource("2_n3o0a")

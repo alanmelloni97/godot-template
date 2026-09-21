@@ -10,17 +10,6 @@ extends Node
 var tween: Tween
 
 
-func stop_music() -> void:
-	# check for tween (first time will be null)
-	if tween and tween.is_running():
-		tween.kill()
-	tween = get_tree().create_tween()
-	tween \
-			.tween_property(audio_stream_player, "volume_db", fade_db, fade_out_seconds) \
-			.set_trans(Tween.TRANS_CUBIC) \
-			.set_ease(Tween.EASE_IN)
-
-
 func play_music() -> void:
 	# check for tween (first time will be null)
 	if tween and tween.is_running():
@@ -30,3 +19,14 @@ func play_music() -> void:
 			.tween_property(audio_stream_player, "volume_db", 0, fade_in_seconds) \
 			.set_trans(Tween.TRANS_CUBIC) \
 			.set_ease(Tween.EASE_OUT)
+
+
+func stop_music() -> void:
+	# check for tween (first time will be null)
+	if tween and tween.is_running():
+		tween.kill()
+	tween = get_tree().create_tween()
+	tween \
+			.tween_property(audio_stream_player, "volume_db", fade_db, fade_out_seconds) \
+			.set_trans(Tween.TRANS_CUBIC) \
+			.set_ease(Tween.EASE_IN)
