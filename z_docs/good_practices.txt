@@ -76,7 +76,7 @@ by type and context. Should be always on an open tab.
 
 - Button sounds: while Godot's theme allows to globally change UI settings, sounds are not contemplated. Adding hover
 and press sound to a button must be individually done to each. To avoid this, create a custom button with a SoundManager
-and use that one everytime a button is needed.
+and use that one everytime a button is needed. Use AnimatedButton every time you can
 
 
 ···TODO: scene manager: why global and not in main????
