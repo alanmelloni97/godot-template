@@ -65,7 +65,8 @@ folder_colors={
 "res://game_logic/main/": "pink",
 "res://game_logic/menus/": "purple",
 "res://godot_files/": "gray",
-"res://z_docs/": "gray"
+"res://z_docs/": "gray",
+"res://z_tests/": "gray"
 }
 
 [gui]
