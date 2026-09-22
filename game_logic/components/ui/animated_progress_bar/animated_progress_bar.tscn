@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dm0ejx2q22w7x"]
+
+[ext_resource type="Script" uid="uid://c3u7nbdvwd4ir" path="res://game_logic/components/ui/animated_progress_bar/animated_progress_bar.gd" id="3_jmrh1"]
+
+[node name="AnimatedProgressBar" type="TextureProgressBar" unique_id=2141928866]
+custom_minimum_size = Vector2(10, 30)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+nine_patch_stretch = true
+script = ExtResource("3_jmrh1")
